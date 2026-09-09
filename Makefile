@@ -2,8 +2,11 @@
 # macOS: uses Homebrew gmp and openssl@3 (override GMP_PREFIX / SSL_PREFIX if installed elsewhere).
 # Linux: needs libgmp-dev and libssl-dev from the distribution.
 
-CXX      ?= c++
-CXXFLAGS ?= -O3 -std=c++20 -Wall -Wno-deprecated-declarations
+ifeq ($(origin CXX),default)
+CXX := c++
+endif
+CXXFLAGS ?= -O3
+override CXXFLAGS += -std=c++20 -Wall -Wno-deprecated-declarations
 BIN      := build/current
 
 UNAME := $(shell uname -s)
@@ -30,10 +33,10 @@ $(BIN)/md1_cli: src/md1.cpp src/md1_cli.cpp src/md1.hpp | $(BIN)
 	$(CXX) $(CXXFLAGS) $(CPPFLAGS) src/md1.cpp src/md1_cli.cpp -o $@
 
 $(BIN)/md1_hamming_scan: src/md1.cpp src/md1_hamming_scan.cpp src/md1.hpp | $(BIN)
-	$(CXX) $(CXXFLAGS) $(CPPFLAGS) src/md1.cpp src/md1_hamming_scan.cpp $(LDFLAGS) $(GMP_LIBS) -pthread -o $@
+	$(CXX) $(CXXFLAGS) $(CPPFLAGS) src/md1.cpp src/md1_hamming_scan.cpp $(LDFLAGS) $(GMP_LIBS) -o $@
 
 $(BIN)/bsafe1_rng_scan: src/bsafe1_rng_scan.cpp | $(BIN)
-	$(CXX) $(CXXFLAGS) $(CPPFLAGS) $< $(LDFLAGS) $(GMP_LIBS) -pthread -o $@
+	$(CXX) $(CXXFLAGS) $(CPPFLAGS) $< $(LDFLAGS) $(GMP_LIBS) -o $@
 
 $(BIN)/rsaref_md5_state_scan: src/rsaref_md5_state_scan.cpp | $(BIN)
 	$(CXX) $(CXXFLAGS) $(CPPFLAGS) $< $(LDFLAGS) $(GMP_LIBS) $(SSL_LIBS) -pthread -o $@

@@ -70,5 +70,5 @@ Other GMP programs use the same GMP include/library flags. The older MD5 program
 
 Copied CADO CMake caches, virtual-environment entry points, and generated scripts can retain absolute paths to the original workspace. Reconfigure/rebuild them in this directory if needed. Do not reset its local patches or assume an existing binary was rebuilt after the last source edit.
 
-The project is the Git repository github.com/Arth-Singh/RSA-270 (since 2026-09-09). vendor/cado-nfs is a submodule; run `git submodule update --init` after cloning and apply vendor/patches/cado-nfs-macos-build.patch on macOS. Compiled binaries under build/ and the recovered Netscape distribution under references/recovered-temp/ are not tracked.
+The project is the Git repository github.com/Arth-Singh/RSA-270 (since 2026-09-09). vendor/cado-nfs is a submodule; run `git submodule update --init` after cloning and apply vendor/patches/cado-nfs-macos-build.patch on macOS. Its build trees and virtual environment are untracked inside the submodule and hidden from `git status` only by `ignore = dirty` in .gitmodules. Compiled binaries under build/ and the recovered Netscape distribution under references/recovered-temp/ are not tracked.
 

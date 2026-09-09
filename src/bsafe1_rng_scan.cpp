@@ -137,14 +137,6 @@ struct Target {
   std::size_t bytes;
 };
 
-Target MakeTarget(const char* label, const char* decimal) {
-  Target target{label, mpz_class(decimal, 10), 0, 0, 0};
-  mpz_prevprime(target.previous.get_mpz_t(), target.prime.get_mpz_t());
-  target.bits = mpz_sizeinbase(target.prime.get_mpz_t(), 2);
-  target.bytes = (target.bits + 7) / 8;
-  return target;
-}
-
 Target MakeTarget(std::string label, const std::string& decimal) {
   Target target{std::move(label), mpz_class(decimal, 10), 0, 0, 0};
   mpz_prevprime(target.previous.get_mpz_t(), target.prime.get_mpz_t());

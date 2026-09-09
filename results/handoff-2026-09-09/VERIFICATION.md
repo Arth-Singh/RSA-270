@@ -12,7 +12,17 @@ Checks performed on 2026-09-09 while preserving context, not while resuming the 
 8. No relevant active factoring/scanner process was observed. No old process was terminated as part of this handoff.
 9. The listed missing temporary DLLs, papers, and scripts were checked and were absent. Only the surviving Netscape 1.0 directory was recovered from the investigated temporary locations.
 
-The source snapshot includes unfinished work. In particular, seed_scan.cpp is newer than build/seed_scan, and rsaref_md5_state_scan.cpp does not use BuildRsa270's returned product-match boolean to determine its process exit status. These were documented, not silently changed.
+The source snapshot included unfinished work. seed_scan.cpp is newer than build/seed_scan, and rsaref_md5_state_scan.cpp at handoff did not use BuildRsa270's returned product-match boolean to determine its process exit status. These were documented at handoff, not silently changed; the scanner was fixed later the same day (see below).
+
+## Post-handoff changes (afternoon of 2026-09-09)
+
+SHA256SUMS records the handoff snapshot before the directory became a Git repository. From commit af0ab47 onward, Git history is the integrity record for tracked files, and `shasum -a 256 -c SHA256SUMS` is expected to fail for these entries:
+
+- README.md, CONTEXT.md, src/rsaref_md5_state_scan.cpp, src/bsafe1_rng_scan.cpp, and this file were edited after the manifest was generated (commits af0ab47 and later).
+- build/* (copied macOS executables) and references/recovered-temp/* (Netscape 1.0 distribution) are intentionally untracked and exist only in the original local copy.
+- vendor/cado-nfs/CMakeLists.txt and vendor/cado-nfs/cado-nfs.py were hashed in their locally patched state; the submodule pins the unpatched upstream commit and the patch lives in vendor/patches/.
+
+The dataset, target.json, the RSAREF references, the reconstruction dump, and the unchanged sources still verify.
 
 The CADO-NFS checkout is at commit 73ca6b6847118b05b15eeec27c86f45cef82a19e, with local modifications:
 
@@ -20,5 +30,5 @@ The CADO-NFS checkout is at commit 73ca6b6847118b05b15eeec27c86f45cef82a19e, wit
 - cado-nfs.py guards sys.set_int_max_str_digits with hasattr for older Python compatibility.
 - Untracked build/ and cado-nfs.venv/ are preserved.
 
-CADO generated configuration may still reference the original workspace. The project root has no Git repository. Hash manifests cover the preserved first-party source, data, references, and copied executables; they are integrity records, not correctness proofs.
+CADO generated configuration may still reference the original workspace. At handoff time the project root had no Git repository; it became github.com/Arth-Singh/RSA-270 later the same day. Hash manifests cover the preserved first-party source, data, references, and copied executables; they are integrity records, not correctness proofs.
 
