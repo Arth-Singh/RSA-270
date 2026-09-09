@@ -1,0 +1,28 @@
+{
+  "command": [
+    "python3",
+    "results/signed24-sensitivity-2026-09-09/signed24_sensitivity.py"
+  ],
+  "cwd": "/Users/arth_rogerthat/Downloads/RSA-270/.worktrees/noise-hamming",
+  "at_utc": "2026-09-09T08:46:07.332445+00:00",
+  "elapsed_seconds": 0.476674792,
+  "returncode": 0,
+  "stdout": "SIGNED24_SENSITIVITY PASSED\n{\n  \"factors\": 34,\n  \"interval_integer_encodings_checked\": 17334,\n  \"lifted_high_bits_checks\": 678,\n  \"inclusive_exclusive_endpoint_checks\": 170,\n  \"factors_with_changed_common_fixed_bits\": 34,\n  \"changed_common_fixed_bits_total\": 390,\n  \"factors_requiring_extra_positive_word\": [],\n  \"old_patterns\": 1404,\n  \"old_unique_fingerprints\": 784,\n  \"signed_patterns\": 408,\n  \"signed_selected_fingerprints_new\": 328,\n  \"signed_unique_fingerprints_new\": 328,\n  \"signed_patterns_without_any_old_fixed_window\": 322,\n  \"signed_fixed_retained_bits_min\": 154,\n  \"signed_fixed_retained_bits_max\": 420,\n  \"no_seed_streams_scanned\": true\n}\nindependent_roundtrips=2370\n",
+  "stderr": "",
+  "initial_compatibility_failure": {
+    "command": [
+      "python3",
+      "results/signed24-sensitivity-2026-09-09/signed24_sensitivity.py"
+    ],
+    "returncode": 1,
+    "error": "AttributeError: 'int' object has no attribute 'bit_count'",
+    "resolution": "Replaced int.bit_count with bin(value).count(\"1\") for the installed Python interpreter; no algorithm change."
+  },
+  "sha256": {
+    "results/signed24-sensitivity-2026-09-09/signed24_sensitivity.py": "7215b2f92ecb5d8d5a618ab8135ef7be395793238c517d7fcc80cbc293e80c17",
+    "results/signed24-sensitivity-2026-09-09/sensitivity.json": "2988caa3a8e7abdf3d5975a3dd53089881c70b96206395695776311222c74639",
+    "results/signed24-sensitivity-2026-09-09/factor-summary.tsv": "593585f8d61e768b1bc0dbe6dcbc007821b227ede68adf7e5a886138a83df418",
+    "results/signed24-sensitivity-2026-09-09/output.txt": "56e9cb6fb2a026249f56dbbaeff53b57fef271985d3b5fcb9681cfcb8a6aba29",
+    "src/noise_hamming_scan.cpp": "48188e1f0e5b39270c7de1f537e3c4063b0a4ee8e3c2f534d34c8db832bd0c6a"
+  }
+}
