@@ -1,0 +1,18 @@
+# Compiled scanners and any local build trees (rebuild from src/, never trust copied binaries)
+build/
+
+# CADO-NFS is a submodule; its build trees and venv are machine-specific
+vendor/cado-nfs/build/
+vendor/cado-nfs/cado-nfs.venv/
+
+# Recovered third-party binary distribution (Netscape 1.0). Kept on disk locally, not redistributed.
+references/recovered-temp/
+
+# Large scan outputs go under results/<run>/ but raw relation/sieve dumps must not be committed
+results/**/*.gz
+results/**/*.rels*
+results/**/*.bin
+*.o
+*.dSYM/
+__pycache__/
+.DS_Store

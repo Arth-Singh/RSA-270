@@ -1,0 +1,4 @@
+[submodule "vendor/cado-nfs"]
+	path = vendor/cado-nfs
+	url = https://gitlab.inria.fr/cado-nfs/cado-nfs.git
+	ignore = dirty

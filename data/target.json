@@ -1,0 +1,17 @@
+{
+  "name": "RSA-270",
+  "decimal": "233108530344407544527637656910680524145619812480305449042948611968495918245135782867888369318577116418213919268572658314913060672626911354027609793166341626693946596196427744273886601876896313468704059066746903123910748277606548649151920812699309766587514735456594993207",
+  "decimal_digits": 270,
+  "bits": 895,
+  "status": "No factor recovered by this project",
+  "handoff_date": "2026-09-09",
+  "historical_deadline": "2026-09-04T18:04:30+09:00",
+  "deadline_active": false,
+  "modeled_factor_bits": [
+    448,
+    447
+  ],
+  "model_is_proven": false,
+  "known_factor_dataset": "data/solved_decimal_challenge.tsv",
+  "context": "CONTEXT.md"
+}

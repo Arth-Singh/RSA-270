@@ -1,0 +1,28 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index b57e69e..3832407 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -211,7 +211,8 @@ elseif(CMAKE_CXX_COMPILER_ID MATCHES "AppleClang" OR CMAKE_HOST_SYSTEM_NAME
+     if (CMAKE_CXX_COMPILER_VERSION VERSION_LESS "16.0.0")
+         message(FATAL_ERROR "cado-nfs requires Apple Clang version 16 or greater")
+     endif()
+-    set (CMAKE_CXX_FLAGS   "-std=c++20 ${CMAKE_CXX_FLAGS}")
++    # Apple libc++ in Xcode 16/17 still gates std::jthread behind this flag.
++    set (CMAKE_CXX_FLAGS   "-std=c++20 -fexperimental-library ${CMAKE_CXX_FLAGS}")
+     message(STATUS "Enabling C++20 support")
+ elseif(CMAKE_CXX_COMPILER_ID MATCHES "^Clang")
+     set (CMAKE_CXX_FLAGS "-W -Wall ${CMAKE_CXX_FLAGS}")
+diff --git a/cado-nfs.py b/cado-nfs.py
+index b1c91e5..dd9636f 100755
+--- a/cado-nfs.py
++++ b/cado-nfs.py
+@@ -137,7 +137,8 @@ from cadofactor.cadocommand import shellquote          # noqa: E402
+ from cadofactor.cadoutils import Computation           # noqa: E402
+ 
+ if __name__ == '__main__':
+-    sys.set_int_max_str_digits(0)  # to be able to print very large integer
++    if hasattr(sys, "set_int_max_str_digits"):
++        sys.set_int_max_str_digits(0)  # to be able to print very large integer
+     # Parse command line arguments
+ 
+     # Some command-line arguments are really parsed only here, while some
