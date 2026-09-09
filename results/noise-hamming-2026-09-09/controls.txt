@@ -1,0 +1,2 @@
+HASHLIB_FIXTURES PASSED independent_checks=436
+SELF_TEST PASSED seeded_packing_controls=1008 enumeration_controls=8 digest_kats=6 counter_carries=6 classification_controls=2

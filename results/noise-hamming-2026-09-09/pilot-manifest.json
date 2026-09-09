@@ -1,0 +1,98 @@
+{
+  "at_utc": "2026-09-09T08:33:42.747483+00:00",
+  "platform": "macOS-15.5-arm64-arm-64bit",
+  "machine": "arm64",
+  "records": [
+    {
+      "command": [
+        "c++",
+        "-O3",
+        "-std=c++20",
+        "-Wall",
+        "-Wextra",
+        "-Wno-deprecated-declarations",
+        "-I/opt/homebrew/opt/gmp/include",
+        "-I/opt/homebrew/opt/openssl@3/include",
+        "src/noise_hamming_scan.cpp",
+        "src/md1.cpp",
+        "-L/opt/homebrew/opt/gmp/lib",
+        "-L/opt/homebrew/opt/openssl@3/lib",
+        "-lgmpxx",
+        "-lgmp",
+        "-lcrypto",
+        "-pthread",
+        "-o",
+        "/Users/arth_rogerthat/Downloads/RSA-270/results/noise-hamming-2026-09-09/noise_hamming_scan"
+      ],
+      "cwd": "/Users/arth_rogerthat/Downloads/RSA-270/.worktrees/noise-hamming",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3",
+        "/Users/arth_rogerthat/Downloads/RSA-270/.worktrees/noise-hamming/scripts/test_noise_hamming_scan.py",
+        "/Users/arth_rogerthat/Downloads/RSA-270/results/noise-hamming-2026-09-09/noise_hamming_scan",
+        "--output",
+        "/Users/arth_rogerthat/Downloads/RSA-270/results/noise-hamming-2026-09-09/hashlib-fixtures.json"
+      ],
+      "cwd": "/Users/arth_rogerthat/Downloads/RSA-270",
+      "returncode": 0,
+      "stdout": "HASHLIB_FIXTURES PASSED independent_checks=436\nSELF_TEST PASSED seeded_packing_controls=1008 enumeration_controls=8 digest_kats=6 counter_carries=6 classification_controls=2\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/arth_rogerthat/Downloads/RSA-270/results/noise-hamming-2026-09-09/noise_hamming_scan",
+        "scan",
+        "--digest",
+        "md5",
+        "--begin",
+        "0",
+        "--end",
+        "16384",
+        "--threads",
+        "2",
+        "--stream-bytes",
+        "2048"
+      ],
+      "cwd": "/Users/arth_rogerthat/Downloads/RSA-270",
+      "returncode": 0,
+      "elapsed_seconds": 0.11176066682673991,
+      "stdout": "config digest=md5 encodings=50 sample_counts=17 arithmetic_orders=2 counters=2 configured_states=1040600 begin=0 end=16384 threads=2 stream_bytes=2048 targets=34 patterns=1404 starts=independent-complete-buffers-only seed_byte_gate=not-enforced candidate_modes=truncate,top1,top2;odd;upward-or-fresh\nsummary states=16384 windows=33439744 fingerprint_hits=0 interior_pattern_hits=0 candidate_interval_hits=0 fresh_candidate_hits=0 elapsed_seconds=0.0863162 streams_per_second=189814 factorization=no\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/arth_rogerthat/Downloads/RSA-270/results/noise-hamming-2026-09-09/noise_hamming_scan",
+        "scan",
+        "--digest",
+        "md1",
+        "--begin",
+        "0",
+        "--end",
+        "4096",
+        "--threads",
+        "2",
+        "--stream-bytes",
+        "2048"
+      ],
+      "cwd": "/Users/arth_rogerthat/Downloads/RSA-270",
+      "returncode": 0,
+      "elapsed_seconds": 1.525466667022556,
+      "stdout": "config digest=md1 encodings=50 sample_counts=17 arithmetic_orders=2 counters=2 configured_states=1040600 begin=0 end=4096 threads=2 stream_bytes=2048 targets=34 patterns=1404 starts=independent-complete-buffers-only seed_byte_gate=not-enforced candidate_modes=truncate,top1,top2;odd;upward-or-fresh\nsummary states=4096 windows=8359936 fingerprint_hits=0 interior_pattern_hits=0 candidate_interval_hits=0 fresh_candidate_hits=0 elapsed_seconds=1.49923 streams_per_second=2732.07 factorization=no\n",
+      "stderr": ""
+    }
+  ],
+  "sha256": {
+    ".worktrees/noise-hamming/src/noise_hamming_scan.cpp": "48188e1f0e5b39270c7de1f537e3c4063b0a4ee8e3c2f534d34c8db832bd0c6a",
+    ".worktrees/noise-hamming/src/md1.cpp": "4c1dc13a780b5cec7e47b84265eea3094f4c4b89c74165565a4faa302b72119f",
+    ".worktrees/noise-hamming/src/md1.hpp": "339a314f541eb81466d462018107a4e46895888d4f56c5ca55e3226369ccb4da",
+    ".worktrees/noise-hamming/scripts/test_noise_hamming_scan.py": "95de2e6cbb3be4392c630d54057f8a5cac21f83642a2b88a471da9b297600a0a",
+    "data/solved_decimal_challenge.tsv": "19d713f80b853a85210215498debeaf98ccf18f06c32761d7ddd1be34f27ca99",
+    "references/rsaref/raw_r_random.c": "830d1033717492db27c62f2c7bdddbaba1bb5b969d8c26669284d1c751b8b605",
+    "references/rsaref/raw_prime-old.c": "854c0217bc0825bafb018892eea5ca61abbeaf980e3ee9dcff01912788141b6e",
+    "results/noise-hamming-2026-09-09/noise_hamming_scan": "a6d450abb1f3078ef7631766e8b181463de9c2e6765626a1c8a2a125fcb24ed0"
+  }
+}
