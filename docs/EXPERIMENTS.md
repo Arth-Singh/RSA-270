@@ -213,3 +213,21 @@ symmetry proof, model decisions, and limitations are in
 All eight scanner seed families still depend on the documented continuous
 stream, formatting, and generator hypotheses. Their completed ranges do not
 exclude other seed mechanisms, skips, reseeding, or prime-generation loops.
+
+## September 9 structural pivot
+
+- `results/signed24-sensitivity-2026-09-09/`: completed algebraic audit of
+  balanced signed 24-bit digits, exact predecessor intervals, masks, carries,
+  and layouts. Of 408 layouts, 328 selected fingerprints are absent from the
+  old scanner's fingerprint set. This documents a conditional coverage gap;
+  no signed-layout streams were scanned, and the user redirected the work
+  toward a recovery mechanism rather than further layout enumeration.
+- `results/primitive-analysis-2026-09-09/`: exact repeated-sweep inversion and
+  exact-length checksum bijection proofs, supported by independent Python/C++
+  checks. All 139 digest controls passed. Full-state inversion requires hidden
+  bytes; a checksum choice fixes the original message. The published MD2
+  long-message preimage construction therefore does not establish a practical
+  attack on the preserved 16-byte MD1 state model.
+
+These findings are mathematical constraints and experimental controls, not
+factorization results. MD1's historical use by this challenge remains unproved.

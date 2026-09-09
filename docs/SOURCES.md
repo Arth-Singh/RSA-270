@@ -175,6 +175,18 @@ The RSAREF section discusses MD5/addition, order-independent seed accumulation, 
 
 The former structure agent cited Sasaki and Aoki's EUROCRYPT 2009 MD5 preimage work (~2^123.4) as a reason direct full-MD5 inversion is impractical. The exact paper link was not retained; re-source before making a current cryptanalytic-bound claim.
 
+On September 9, Søren S. Thomsen's primary paper, [An improved preimage attack
+on MD2](https://eprint.iacr.org/2008/089.pdf), and the MD2 reference implementation
+in [RFC 1319](https://www.rfc-editor.org/rfc/rfc1319.txt) were checked against the
+preserved MD1 code. The journal record is [Cryptanalysis of
+MD2](https://orbit.dtu.dk/en/publications/cryptanalysis-of-md2/), DOI
+10.1007/s00145-009-9054-1; its full text was not obtained. The exact-length,
+checksum, IV, projection, and memory barriers are recorded in
+`results/primitive-analysis-2026-09-09/literature/MD1_MD2_APPLICABILITY.md`.
+This work does not transfer the published MD2 attack bound to MD1. Downloaded
+paper, extracted text, and inspected renderings remain local, with URLs and
+hashes in the provenance file.
+
 ## Construction-family paper found during the search
 
 Anthony Overmars and Sitalakshmi Venkatraman, "Forensic Construction-Family Signatures in Solved RSA Challenge Moduli: High-Bit Conditioning, Residue Constraints, and Factor-Balance Patterns", Information 2026, 17(9), 847; page reported publication August 31, 2026.

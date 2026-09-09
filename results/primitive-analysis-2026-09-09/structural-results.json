@@ -1,0 +1,21 @@
+{
+  "purpose": "Verify structural identities in the preserved MD1 implementation; no state recovery or factorization.",
+  "sbox_is_permutation": true,
+  "full_48_byte_sweep_fixtures": 512,
+  "sweep_identities_per_fixture": 5,
+  "checksum_bijection_fixtures_each_direction": 512,
+  "known_answer_tests": 4,
+  "independent_python_cpp_digest_controls": 139,
+  "exact_16_byte_three_block_compositions": 128,
+  "reduced_round_messages": 4096,
+  "one_sweep_distinct_first16": 1,
+  "two_sweep_distinct_first16": 256,
+  "limitations": [
+    "Full-sweep inverse needs all 48 output bytes; the digest exposes 16.",
+    "The reduced-round observation supplies no full-18-sweep preimage method.",
+    "Checksum inversion requires all 16 checksum bytes, which are not exposed by the digest.",
+    "No source establishes that RSA-270 used this MD1 implementation."
+  ],
+  "source_sha256": "4c1dc13a780b5cec7e47b84265eea3094f4c4b89c74165565a4faa302b72119f",
+  "script_sha256": "bc195ca6cb0ff324634cfa57b749c232c551bb285db928e644a0870a8ab720a3"
+}

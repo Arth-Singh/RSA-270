@@ -35,6 +35,8 @@ The original one-day deadline has expired. Set a new scope or budget if desired.
 | references/recovered-temp/netscape-1.0/ | Surviving Netscape 1.0 research download; no demonstrated RSA DSP connection |
 | results/handoff-2026-09-09/ | Regenerated masks, verification notes, and file hashes |
 | results/compute-continuation-2026-09-09/ | Completed VM seed coverage, matched gap controls, restored sources, and current research decisions |
+| results/signed24-sensitivity-2026-09-09/ | Audited signed-digit representation coverage; no new stream scan |
+| results/primitive-analysis-2026-09-09/ | Exact MD1 structural identities, independent controls, and MD2 attack applicability limits |
 | vendor/cado-nfs/ | CADO-NFS git submodule at upstream commit 73ca6b6; macOS build patch in vendor/patches/ |
 
 ## Local build examples

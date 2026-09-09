@@ -59,10 +59,25 @@ complete-buffer starts; there were zero fingerprint or candidate hits across
 additive update if binary samples were hashed separately; historical use is
 unproven, and this is not an exclusion of arbitrary RNGs or seed mixing.
 
-A small signed-24-bit representation sensitivity audit is next. The DSP paper
-describes signed arithmetic, but that alone does not establish how random bytes
-entered candidate digits. Derive and validate any new patterns before expanding
-the search.
+The signed-24-bit sensitivity audit is complete under
+`results/signed24-sensitivity-2026-09-09/`. It independently checks every
+integer in the 34 exact predecessor intervals and finds 328 selected signed
+fingerprints absent from the old scanner's set. This is a representation
+coverage gap, not recovered generator behavior or reduced seed entropy. No
+signed-layout stream scan was run. The user redirected the work toward a
+structural recovery mechanism; the signed implementation route is paused.
+
+Direct MD1 analysis is under `results/primitive-analysis-2026-09-09/`. Exact
+full-state sweep inversion and checksum bijection identities were derived and
+checked against independent Python/C++ controls. Neither identity supplies an
+inverse of the truncated full digest. The published MD2 long-message attack
+does not transfer to this exact 16-byte state problem. A separate full-round
+synthetic experiment left all 128 input bits unknown and constrained two
+adjacent digests. Its watchdog ended the blind search without a state or
+SAT/UNSAT conclusion. A separate known-state SAT control validated the saved
+symbolic equations; it is not a recovery result. Evidence is under
+`results/md1-state-recovery-2026-09-09/`. No real challenge RNG outputs or state
+have been recovered.
 
 ## Strategy and evidence boundaries
 

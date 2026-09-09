@@ -1,0 +1,14 @@
+Working directory: /Users/arth_rogerthat/Downloads/RSA-270
+
+curl -fL --max-time 60 https://eprint.iacr.org/2008/089.pdf -o results/primitive-analysis-2026-09-09/literature/md2-preimage-2008-089.pdf
+pdftotext -layout results/primitive-analysis-2026-09-09/literature/md2-preimage-2008-089.pdf results/primitive-analysis-2026-09-09/literature/md2-preimage-2008-089.txt
+pdftoppm -f 5 -l 8 -r 100 -png results/primitive-analysis-2026-09-09/literature/md2-preimage-2008-089.pdf results/primitive-analysis-2026-09-09/literature/md2-attack-page > results/primitive-analysis-2026-09-09/literature/render.log 2>&1
+curl -fL --max-time 30 https://www.rfc-editor.org/rfc/rfc1319.txt -o results/primitive-analysis-2026-09-09/literature/rfc1319.txt > results/primitive-analysis-2026-09-09/literature/rfc-download.log 2>&1
+
+The ePrint web tool fetch failed; the direct HTTPS download succeeded. The journal
+full text was not obtained. Only its official author-institution metadata was
+read at https://orbit.dtu.dk/en/publications/cryptanalysis-of-md2/ .
+
+All source hashes and the exact S-box permutation check are recorded in
+provenance.json. Full downloaded sources and rendered pages remain local and are
+excluded from accidental Git addition through .git/info/exclude.

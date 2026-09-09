@@ -1,0 +1,23 @@
+{
+  "sbox_entries": 256,
+  "sbox_distinct": 256,
+  "sbox_is_permutation": true,
+  "source_sha256": "4c1dc13a780b5cec7e47b84265eea3094f4c4b89c74165565a4faa302b72119f",
+  "header_sha256": "339a314f541eb81466d462018107a4e46895888d4f56c5ca55e3226369ccb4da",
+  "paper_sha256": "e6b5bdec673fd0d428354d8b703294297b9ab0ed2f97048d712ed93e74b7c188",
+  "paper_url": "https://eprint.iacr.org/2008/089.pdf",
+  "memory_bytes_for_2pow73_16byte_blocks": 151115727451828646838272,
+  "ratio_to_512_GiB": 274877906944,
+  "journal_metadata_url": "https://orbit.dtu.dk/en/publications/cryptanalysis-of-md2/",
+  "journal_full_text_read": false,
+  "eprint_full_text_read": true,
+  "equation_pages_visually_reviewed": [
+    5,
+    6,
+    7,
+    8
+  ],
+  "analysis_sha256": "e5155e298529fd6fcd16a2e7cb579683b956223f5e10da2d313632e510a034b8",
+  "rfc1319_sha256": "af6bf6d3e216f1776db63211dd282801d265a661c91ba3994c9b4d20d03c2aac",
+  "proof_status": "The checksum bijection and full-sweep inverse are algebraic identities derived from source. No full-digest preimage complexity bound for MD1 is proved."
+}

@@ -1,0 +1,49 @@
+{
+  "platform": "macOS-15.5-arm64-arm-64bit",
+  "python": "3.12.12",
+  "commands": [
+    {
+      "command": [
+        "c++",
+        "--version"
+      ],
+      "returncode": 0,
+      "seconds": 0.10817525000311434,
+      "stdout_stderr": "results/primitive-analysis-2026-09-09/structural-command-0.log"
+    },
+    {
+      "command": [
+        "c++",
+        "-O2",
+        "-std=c++20",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-Isrc",
+        "/Users/arth_rogerthat/Downloads/RSA-270/results/primitive-analysis-2026-09-09/md1_hex.cpp",
+        "src/md1.cpp",
+        "-o",
+        "/Users/arth_rogerthat/Downloads/RSA-270/results/primitive-analysis-2026-09-09/build/md1_hex"
+      ],
+      "returncode": 0,
+      "seconds": 0.9068593748379499,
+      "stdout_stderr": "results/primitive-analysis-2026-09-09/structural-command-1.log"
+    },
+    {
+      "command": [
+        "python3",
+        "/Users/arth_rogerthat/Downloads/RSA-270/results/primitive-analysis-2026-09-09/structural_checks.py"
+      ],
+      "returncode": 0,
+      "seconds": 0.5207869578152895,
+      "stdout_stderr": "results/primitive-analysis-2026-09-09/structural-command-2.log"
+    }
+  ],
+  "sha256": {
+    "src/md1.cpp": "4c1dc13a780b5cec7e47b84265eea3094f4c4b89c74165565a4faa302b72119f",
+    "src/md1.hpp": "339a314f541eb81466d462018107a4e46895888d4f56c5ca55e3226369ccb4da",
+    "results/primitive-analysis-2026-09-09/md1_hex.cpp": "048db6c0bc2af48450d3358625ba1015a87b343e68a0b6208365444add943773",
+    "results/primitive-analysis-2026-09-09/structural_checks.py": "bc195ca6cb0ff324634cfa57b749c232c551bb285db928e644a0870a8ab720a3",
+    "results/primitive-analysis-2026-09-09/build/md1_hex": "58b5491375946df2498432d695c92541502fb91ed96c9ab2a96fabda104ca0d2"
+  }
+}
