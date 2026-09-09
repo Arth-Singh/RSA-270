@@ -1,0 +1,17 @@
+{
+  "sha256": {
+    "results/rust-kernel-2026-09-09/.gitattributes": "a97ad5bd54377f0cfb841224390b5530e791d713c12aae23f50a2846801940be",
+    "results/rust-kernel-2026-09-09/README.md": "df65b7b0fd4fdc09077eb47cae884df1fffe970f768f7488d0113c0ace7f96a1",
+    "results/rust-kernel-2026-09-09/md1_cpp_bench.cpp": "e54fbd90808fe3d9f9064f04d27b6f5b142218f54f4441a35cfee01301ebb0ba",
+    "results/rust-kernel-2026-09-09/md1_rust.rs": "1c3d29321ff3744b8ed6e3edba3d3aba79cc57514b397b7b666bcdfc5ea1a2f3",
+    "results/rust-kernel-2026-09-09/run/carry-vectors.tsv": "dbd8aa06cfc18565ba62b4ffea886fd55909c9dbeb3d8bd35e4170b521a9441f",
+    "results/rust-kernel-2026-09-09/run/digest-vectors.tsv": "c4a4f3a713a1898c20e122a20e4821d8ba6face1e4f64cae157a88680cfdfbf0",
+    "results/rust-kernel-2026-09-09/run/driver.log": "f0fde36f10d57051584fe8cf4ec944c31bfe05e5bd3073bff6b7ec7a3ec556c4",
+    "results/rust-kernel-2026-09-09/run/subprocesses.jsonl": "593d5c880003a5f626936e7ed7c92121ab5d86b0936a89ffeadb281337dfde10",
+    "results/rust-kernel-2026-09-09/run/summary.json": "5e0a6aafd3b4adf203a40f5a5dc6830af49d62593f61de716c1f5e774d4cc8d9",
+    "results/rust-kernel-2026-09-09/run/timings.tsv": "0d851af4f4aa828b3f7bf35de24edd14ce868a0dc5944c58808d1c4348717b64",
+    "results/rust-kernel-2026-09-09/run_experiment.py": "c59cf00248b6a8316d71102fb9ad0bde1098198b4ee3b5535304b655d49505b3",
+    "results/rust-kernel-2026-09-09/sbox.rs": "b5ff5bcc3b7894eab4519fdbf25f067367b0880fcd8797c02ef4b9fddbbee348"
+  },
+  "verification": "All recorded source and binary hashes matched;128 distinct binary16 inputs;24 timing samples>=0.2s;all child exits0;both builds warning-free."
+}

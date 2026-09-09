@@ -1,0 +1,2 @@
+# Preserve exact csv.writer output, including CRLF and empty final TSV fields.
+run/*.tsv -text whitespace=-blank-at-eol,cr-at-eol

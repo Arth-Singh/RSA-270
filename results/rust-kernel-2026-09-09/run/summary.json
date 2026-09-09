@@ -1,0 +1,193 @@
+{
+  "base_commit": "52f5860da06aa740d7fd24200d49e0a46a9051a0",
+  "correctness": {
+    "all_benchmark_outputs_agree": true,
+    "carry_cases": 21,
+    "digest_cases": 181,
+    "independent_binary16": 128,
+    "kats": 4
+  },
+  "cpp_compiler": "Apple clang version 17.0.0 (clang-1700.0.13.5)\nTarget: arm64-apple-darwin24.5.0\nThread model: posix\nInstalledDir: /Library/Developer/CommandLineTools/usr/bin\n",
+  "cpp_flags": [
+    "-O3",
+    "-DNDEBUG",
+    "-std=c++20",
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-mcpu=native",
+    "-flto=full",
+    "-Isrc"
+  ],
+  "created_utc": "2026-09-09T09:11:35.083521+00:00",
+  "hardware": [
+    "Mac16,12",
+    "arm64",
+    "10",
+    "10",
+    "10",
+    "17179869184",
+    "Apple M4"
+  ],
+  "hardware_fields": [
+    "model",
+    "machine",
+    "cpus",
+    "physical_cpus",
+    "logical_cpus",
+    "memory_bytes",
+    "brand"
+  ],
+  "limitations": [
+    "Specific sources, compilers, flags, CPU, and short local sample; not universal language speed.",
+    "Apple clang17 and rustc1.94 LLVM21 are different compiler toolchains.",
+    "Whole-process timing includes startup, deterministic input generation, and output folding.",
+    "No scanner, solver, seed search, or new factoring algorithm is implemented.",
+    "No CPU affinity or frequency pinning was applied; order alternates to reduce temporal bias."
+  ],
+  "platform": "macOS-15.5-arm64-arm-64bit",
+  "python": "3.9.6",
+  "root": "/Users/arth_rogerthat/Downloads/RSA-270/.worktrees/rust-kernel",
+  "rust_compiler": "rustc 1.94.0 (4a4ef493e 2026-03-02) (Homebrew)\nbinary: rustc\ncommit-hash: 4a4ef493e3a1488c6e321570238084b38948f6db\ncommit-date: 2026-03-02\nhost: aarch64-apple-darwin\nrelease: 1.94.0\nLLVM version: 21.1.8\n",
+  "rust_flags": [
+    "--edition=2021",
+    "-C",
+    "opt-level=3",
+    "-C",
+    "target-cpu=native",
+    "-C",
+    "lto=fat",
+    "-C",
+    "codegen-units=1",
+    "-C",
+    "panic=unwind",
+    "-D",
+    "warnings"
+  ],
+  "sha256": {
+    "build/rust-kernel/md1_cpp": "bbe5f35fe611d4961d7242961075658496f6642e9629a4f14d4c9c99ea59d565",
+    "build/rust-kernel/md1_rust": "957a2c7462d4fbaf641d83d7f36c21261dc0913f4f9e408c36a1c4516538d913",
+    "references/rsaref/raw_r_random.c": "830d1033717492db27c62f2c7bdddbaba1bb5b969d8c26669284d1c751b8b605",
+    "results/rust-kernel-2026-09-09/md1_cpp_bench.cpp": "e54fbd90808fe3d9f9064f04d27b6f5b142218f54f4441a35cfee01301ebb0ba",
+    "results/rust-kernel-2026-09-09/md1_rust.rs": "1c3d29321ff3744b8ed6e3edba3d3aba79cc57514b397b7b666bcdfc5ea1a2f3",
+    "results/rust-kernel-2026-09-09/run_experiment.py": "c59cf00248b6a8316d71102fb9ad0bde1098198b4ee3b5535304b655d49505b3",
+    "results/rust-kernel-2026-09-09/sbox.rs": "b5ff5bcc3b7894eab4519fdbf25f067367b0880fcd8797c02ef4b9fddbbee348",
+    "src/md1.cpp": "4c1dc13a780b5cec7e47b84265eea3094f4c4b89c74165565a4faa302b72119f",
+    "src/md1.hpp": "339a314f541eb81466d462018107a4e46895888d4f56c5ca55e3226369ccb4da"
+  },
+  "timing_method": "Each interval measured in one Python parent with its own perf_counter_ns; sequential children; no comparison of process clock origins.",
+  "workloads": {
+    "full-state": {
+      "implementations": {
+        "cpp": {
+          "digests_per_second": 176117.01614857945,
+          "max_seconds": 0.372837208,
+          "median_absolute_deviation_seconds": 0.0007040204999999855,
+          "median_seconds": 0.3721162295,
+          "min_seconds": 0.371339416,
+          "nanoseconds_per_digest": 5678.04305267334,
+          "seconds": [
+            0.371380208,
+            0.372837208,
+            0.371339416,
+            0.371770292,
+            0.372803292,
+            0.372462167
+          ]
+        },
+        "rust": {
+          "digests_per_second": 177673.4717283595,
+          "max_seconds": 0.374388375,
+          "median_absolute_deviation_seconds": 0.0010115199999999602,
+          "median_seconds": 0.36885641599999996,
+          "min_seconds": 0.367779584,
+          "nanoseconds_per_digest": 5628.302246093749,
+          "seconds": [
+            0.368051541,
+            0.374388375,
+            0.367779584,
+            0.367910208,
+            0.369661291,
+            0.371668709
+          ]
+        }
+      },
+      "iterations_per_process": 65536,
+      "median_paired_cpp_over_rust_ratio": 1.0087718497657967,
+      "output": {
+        "final_state": "fedd710ce43361d7ad44fe608ce9abd1",
+        "fold": "0272e4cafbe00e8a",
+        "iterations": 65536,
+        "mode": "full-state",
+        "rng_state": "f372fe94f95f282d",
+        "seed": 20260909
+      },
+      "paired_cpp_over_rust_ratios": [
+        1.009044024081399,
+        0.9958567971027412,
+        1.0096792539740325,
+        1.0104919187238208,
+        1.0084996754501947,
+        1.002134852842831
+      ],
+      "ratio_of_median_cpp_over_rust": 1.0088376217915647,
+      "timing_pairs": 6
+    },
+    "postincrement": {
+      "implementations": {
+        "cpp": {
+          "digests_per_second": 176475.8449919127,
+          "max_seconds": 0.384908542,
+          "median_absolute_deviation_seconds": 0.0006247084999999875,
+          "median_seconds": 0.3713596045,
+          "min_seconds": 0.370597542,
+          "nanoseconds_per_digest": 5666.497871398926,
+          "seconds": [
+            0.370597542,
+            0.384908542,
+            0.371712792,
+            0.37294675,
+            0.37087225,
+            0.371006417
+          ]
+        },
+        "rust": {
+          "digests_per_second": 177787.61435596357,
+          "max_seconds": 0.412168167,
+          "median_absolute_deviation_seconds": 0.0006287084999999915,
+          "median_seconds": 0.368619604,
+          "min_seconds": 0.367797916,
+          "nanoseconds_per_digest": 5624.688781738281,
+          "seconds": [
+            0.368678,
+            0.412168167,
+            0.376615542,
+            0.368183875,
+            0.367797916,
+            0.368561208
+          ]
+        }
+      },
+      "iterations_per_process": 65536,
+      "median_paired_cpp_over_rust_ratio": 1.00592051309442,
+      "output": {
+        "final_state": "49c54542824aa60d10433bcf060f0000",
+        "fold": "99e1311b97f6421c",
+        "iterations": 65536,
+        "mode": "postincrement",
+        "rng_state": "3c6ef372ffca2057",
+        "seed": 20260909
+      },
+      "paired_cpp_over_rust_ratios": [
+        1.0052065542288935,
+        0.9338628570022489,
+        0.9869820826459679,
+        1.0129361314370435,
+        1.008358758617871,
+        1.0066344719599465
+      ],
+      "ratio_of_median_cpp_over_rust": 1.0074331383091606,
+      "timing_pairs": 6
+    }
+  }
+}
