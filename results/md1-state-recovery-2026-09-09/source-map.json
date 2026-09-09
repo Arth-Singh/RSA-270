@@ -1,0 +1,26 @@
+{
+  "executed_blind_sources": {
+    "src/md1.cpp": {
+      "sha256": "4c1dc13a780b5cec7e47b84265eea3094f4c4b89c74165565a4faa302b72119f",
+      "snapshot": "source-md1.cpp"
+    },
+    "src/md1.hpp": {
+      "sha256": "339a314f541eb81466d462018107a4e46895888d4f56c5ca55e3226369ccb4da",
+      "snapshot": "source-md1.hpp"
+    },
+    "tests/md1_state_oracle.cpp": {
+      "sha256": "894e9b71eefb4cebdd7ccb583e55e8b78146ac30e6ef50a595319f80cb468508",
+      "snapshot": "source-md1_state_oracle.cpp"
+    },
+    "scripts/md1_state_recovery.py": {
+      "sha256": "4c2af3f268c556f75f194931229c9b5530c6bccc018893d8b31408ae088ca096",
+      "snapshot": "source-md1_state_recovery.py"
+    }
+  },
+  "committed_sources": {
+    "scripts/md1_state_recovery.py": "e27638e9f01542466a19331075a64bd826961cbc5cdf698f400a69a7ae635ab0",
+    "scripts/validate_md1_smt_model.py": "537d6b31fd67433370e7e1380e85c252a7cb0bb71f01567c0333541b7d6d84ee",
+    "tests/md1_state_oracle.cpp": "894e9b71eefb4cebdd7ccb583e55e8b78146ac30e6ef50a595319f80cb468508"
+  },
+  "postrun_change": "Corrected external watchdog to compare times from the parent process only; no blind rerun."
+}

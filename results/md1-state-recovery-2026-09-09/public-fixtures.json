@@ -1,0 +1,26 @@
+[
+  {
+    "id": "fixture-0",
+    "d0": "52da50bc6157624e2f1c8ffd682c06e2",
+    "d1": "c354eb72a673cfa9297c0487fde4fe1b",
+    "input_bytes": 16,
+    "counter": "post-be",
+    "rounds_per_block": 18
+  },
+  {
+    "id": "fixture-1",
+    "d0": "ec0fa38a70a4ffbd4ae463c43a64cea7",
+    "d1": "1ac9b74bce097c877d4515a5cb139cf1",
+    "input_bytes": 16,
+    "counter": "post-be",
+    "rounds_per_block": 18
+  },
+  {
+    "id": "fixture-2",
+    "d0": "865b71aebb304769ecc048c64e33929f",
+    "d1": "e42151b0f7c7cd955c1f3322da9b9cbe",
+    "input_bytes": 16,
+    "counter": "post-be",
+    "rounds_per_block": 18
+  }
+]

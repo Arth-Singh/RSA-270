@@ -1,0 +1,13 @@
+{
+  "solve_marker_utc": "2026-09-09T09:03:29.962554+00:00",
+  "result_file_mtime_utc": "2026-09-09T09:04:28.601747+00:00",
+  "marker_to_result_wall_seconds": 58.639193,
+  "parent_monotonic_before": 0.020566416,
+  "child_monotonic": 0.003637375,
+  "parent_monotonic_after": 0.032674666,
+  "finding": "The runtime exposes process-relative monotonic origins. Cross-process subtraction overstates this run duration.",
+  "original_reported_cross_process_seconds": 60.0311455,
+  "interpretation": "Unknown after approximately58.639 seconds of blind solving. The external cap was conservative; native59s timeout had not expired.",
+  "original_runner_snapshot_sha256": "4c2af3f268c556f75f194931229c9b5530c6bccc018893d8b31408ae088ca096",
+  "original_output_preserved": true
+}

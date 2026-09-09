@@ -1,0 +1,124 @@
+{
+  "known_answer_tests_passed": 4,
+  "counter_vectors_passed": 3,
+  "full_state_pairs_verified": 3,
+  "commands": [
+    {
+      "command": [
+        "c++",
+        "-O2",
+        "-std=c++20",
+        "-Wall",
+        "-Wextra",
+        "/Users/arth_rogerthat/Downloads/RSA-270/.worktrees/md1-state-recovery/tests/md1_state_oracle.cpp",
+        "/Users/arth_rogerthat/Downloads/RSA-270/.worktrees/md1-state-recovery/src/md1.cpp",
+        "-o",
+        "/Users/arth_rogerthat/Downloads/RSA-270/.worktrees/md1-state-recovery/results/md1-state-recovery-2026-09-09/md1_state_oracle"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "elapsed_seconds": 0.942494875
+    },
+    {
+      "command": [
+        "/Users/arth_rogerthat/Downloads/RSA-270/.worktrees/md1-state-recovery/results/md1-state-recovery-2026-09-09/md1_state_oracle",
+        "digest",
+        ""
+      ],
+      "returncode": 0,
+      "stdout": "7ae2a21d8793650044ae40277eafaa2e\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/arth_rogerthat/Downloads/RSA-270/.worktrees/md1-state-recovery/results/md1-state-recovery-2026-09-09/md1_state_oracle",
+        "digest",
+        "616263"
+      ],
+      "returncode": 0,
+      "stdout": "74594a0a73b03503efe62e574dbaf816\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/arth_rogerthat/Downloads/RSA-270/.worktrees/md1-state-recovery/results/md1-state-recovery-2026-09-09/md1_state_oracle",
+        "digest",
+        "61"
+      ],
+      "returncode": 0,
+      "stdout": "420965f2da150b44cbfadd695ab5bbe9\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/arth_rogerthat/Downloads/RSA-270/.worktrees/md1-state-recovery/results/md1-state-recovery-2026-09-09/md1_state_oracle",
+        "digest",
+        "31323334353637383930"
+      ],
+      "returncode": 0,
+      "stdout": "34dbffc3e4a9c0ad2d5559c99649c69e\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/arth_rogerthat/Downloads/RSA-270/.worktrees/md1-state-recovery/results/md1-state-recovery-2026-09-09/md1_state_oracle",
+        "pair",
+        "00000000000000000000000000000000"
+      ],
+      "returncode": 0,
+      "stdout": "{\"d0\":\"20e5e18ca407bbfd47746667e74de9a1\",\"d1\":\"689d42c52326eab4fc6499cdc628718c\",\"next_state\":\"01010101010101010101010101010101\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/arth_rogerthat/Downloads/RSA-270/.worktrees/md1-state-recovery/results/md1-state-recovery-2026-09-09/md1_state_oracle",
+        "pair",
+        "ffffffffffffffffffffffffffffffff"
+      ],
+      "returncode": 0,
+      "stdout": "{\"d0\":\"f4031eebc1680b65f6bee35513ebc336\",\"d1\":\"c759053c05d5a9e99a060de29ab42766\",\"next_state\":\"ffffffffffffffffffffffffffffff00\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/arth_rogerthat/Downloads/RSA-270/.worktrees/md1-state-recovery/results/md1-state-recovery-2026-09-09/md1_state_oracle",
+        "pair",
+        "1212121212121212121212121212ff00"
+      ],
+      "returncode": 0,
+      "stdout": "{\"d0\":\"345700b9084d8e0d009b6bdfd869f829\",\"d1\":\"008103fb002a39d3a23cae734662cfce\",\"next_state\":\"12121212121212121212121212120001\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/arth_rogerthat/Downloads/RSA-270/.worktrees/md1-state-recovery/results/md1-state-recovery-2026-09-09/md1_state_oracle",
+        "pair",
+        "ae94cd348f1c7b7ed6bc6c61d8a5c2fa"
+      ],
+      "returncode": 0,
+      "stdout": "{\"d0\":\"52da50bc6157624e2f1c8ffd682c06e2\",\"d1\":\"c354eb72a673cfa9297c0487fde4fe1b\",\"next_state\":\"ae94cd348f1c7b7ed6bc6c61d8a5c2fb\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/arth_rogerthat/Downloads/RSA-270/.worktrees/md1-state-recovery/results/md1-state-recovery-2026-09-09/md1_state_oracle",
+        "pair",
+        "f8c2d226c65de0396d1590a9c5e84c64"
+      ],
+      "returncode": 0,
+      "stdout": "{\"d0\":\"ec0fa38a70a4ffbd4ae463c43a64cea7\",\"d1\":\"1ac9b74bce097c877d4515a5cb139cf1\",\"next_state\":\"f8c2d226c65de0396d1590a9c5e84c65\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/arth_rogerthat/Downloads/RSA-270/.worktrees/md1-state-recovery/results/md1-state-recovery-2026-09-09/md1_state_oracle",
+        "pair",
+        "0ad433a362e0d2fdb9eaa8040fbb6e20"
+      ],
+      "returncode": 0,
+      "stdout": "{\"d0\":\"865b71aebb304769ecc048c64e33929f\",\"d1\":\"e42151b0f7c7cd955c1f3322da9b9cbe\",\"next_state\":\"0ad433a362e0d2fdb9eaa8040fbb6e21\"}\n",
+      "stderr": ""
+    }
+  ]
+}

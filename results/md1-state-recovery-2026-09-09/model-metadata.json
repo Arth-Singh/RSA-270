@@ -1,0 +1,30 @@
+{
+  "fixture": {
+    "id": "fixture-0",
+    "d0": "52da50bc6157624e2f1c8ffd682c06e2",
+    "d1": "c354eb72a673cfa9297c0487fde4fe1b",
+    "input_bytes": 16,
+    "counter": "post-be",
+    "rounds_per_block": 18
+  },
+  "z3_version": "Z3 5.1.0.0",
+  "logic": "QF_AUFBV",
+  "input_unknown_bits": 128,
+  "input_restrictions": "none; sixteen unconstrained 8-bit variables",
+  "digests": 2,
+  "blocks_per_digest": 3,
+  "sweeps_per_block": 18,
+  "updates_per_sweep": 48,
+  "sbox_table_entries": 256,
+  "sbox_lookup_operations": 5280,
+  "byte_definitions": 5296,
+  "assertions": 5584,
+  "native_timeout_ms": 59000,
+  "external_timeout_seconds": 60,
+  "solver_threads": 1,
+  "z3_memory_max_size_mb": 1536,
+  "constraint_build_seconds": 0.288803709,
+  "constraint_serialization_seconds": 0.03747320799999998,
+  "constraints_sha256": "cc066bcf5de42d98345ca76ea326b03674dc8cff55143c17218209a0204a9331",
+  "public_fixtures_sha256": "88889ece211f1ef43720c3f27896366763cbd9f93d28b9fcdf124d5d08d7136d"
+}

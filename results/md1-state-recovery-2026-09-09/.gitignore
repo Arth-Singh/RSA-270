@@ -1,0 +1,2 @@
+# Rebuild production verification binaries; RUN.json records the executed hash.
+md1_state_oracle

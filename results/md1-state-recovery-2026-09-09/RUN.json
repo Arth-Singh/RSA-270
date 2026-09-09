@@ -1,0 +1,37 @@
+{
+  "base_commit": "14c80e7afd88ef7710dc597ecac6a9a51900d713",
+  "command": [
+    "/Users/arth_rogerthat/Downloads/RSA-270/.worktrees/md1-state-recovery/results/.venv/bin/python",
+    "scripts/md1_state_recovery.py",
+    "run",
+    "--out",
+    "/Users/arth_rogerthat/Downloads/RSA-270/.worktrees/md1-state-recovery/results/md1-state-recovery-2026-09-09"
+  ],
+  "worker_command": [
+    "/Users/arth_rogerthat/Downloads/RSA-270/.worktrees/md1-state-recovery/results/.venv/bin/python",
+    "/Users/arth_rogerthat/Downloads/RSA-270/.worktrees/md1-state-recovery/scripts/md1_state_recovery.py",
+    "worker",
+    "--out",
+    "/Users/arth_rogerthat/Downloads/RSA-270/.worktrees/md1-state-recovery/results/md1-state-recovery-2026-09-09",
+    "--public",
+    "/Users/arth_rogerthat/Downloads/RSA-270/.worktrees/md1-state-recovery/results/md1-state-recovery-2026-09-09/public-fixtures.json",
+    "--fixture",
+    "0"
+  ],
+  "cwd": "/Users/arth_rogerthat/Downloads/RSA-270/.worktrees/md1-state-recovery",
+  "source_sha256": {
+    "src/md1.cpp": "4c1dc13a780b5cec7e47b84265eea3094f4c4b89c74165565a4faa302b72119f",
+    "src/md1.hpp": "339a314f541eb81466d462018107a4e46895888d4f56c5ca55e3226369ccb4da",
+    "tests/md1_state_oracle.cpp": "894e9b71eefb4cebdd7ccb583e55e8b78146ac30e6ef50a595319f80cb468508",
+    "scripts/md1_state_recovery.py": "4c2af3f268c556f75f194931229c9b5530c6bccc018893d8b31408ae088ca096"
+  },
+  "oracle_binary_sha256": "6ad824921db11629204e98d36b45b142afb8ea839a73f51078f1d126514809ce",
+  "prepared_fixtures": 3,
+  "requested_solves": 1,
+  "external_constraint_build_cap_seconds": 60,
+  "memory_cap": "Z3 native hard allocation limit of 1536 MB; this is not an OS RSS limit",
+  "worker_exit": -9,
+  "result": "unknown",
+  "reason_unknown": "external_60_second_wall_timeout",
+  "held_out_fixtures_solved": 0
+}

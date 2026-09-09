@@ -1,0 +1,20 @@
+{
+  "generation": "SHA-256(domain || 32-bit big-endian index), first sixteen bytes; generated separately and never passed to the solving worker",
+  "fixtures": [
+    {
+      "id": "fixture-0",
+      "state": "ae94cd348f1c7b7ed6bc6c61d8a5c2fa",
+      "next_state": "ae94cd348f1c7b7ed6bc6c61d8a5c2fb"
+    },
+    {
+      "id": "fixture-1",
+      "state": "f8c2d226c65de0396d1590a9c5e84c64",
+      "next_state": "f8c2d226c65de0396d1590a9c5e84c65"
+    },
+    {
+      "id": "fixture-2",
+      "state": "0ad433a362e0d2fdb9eaa8040fbb6e20",
+      "next_state": "0ad433a362e0d2fdb9eaa8040fbb6e21"
+    }
+  ]
+}

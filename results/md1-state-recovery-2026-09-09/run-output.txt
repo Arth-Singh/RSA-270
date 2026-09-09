@@ -1,0 +1,3 @@
+PREPARED production_KATs=4 counter_vectors=3 full_state_pairs=3
+SOLVING fixture-0 full_unknown_bits=128 full_sweeps=18 native_timeout_ms=59000 external_cap_seconds=60
+COMPLETED {"status": "unknown", "reason_unknown": "external_60_second_wall_timeout", "solve_seconds": 60.0311455, "held_out_solves": 0}
