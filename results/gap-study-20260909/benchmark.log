@@ -1,0 +1,6 @@
+model=old-RSAREF exact_predicate=yes exponent=3 factors=34 decimal_labels=automatically_satisfied cyclic_endpoints=yes
+observed normalized_gap_sum=41.260233365853622 log_normalized_gap_sum=-5.0137006313045713
+run seed=20260909 first_replicate=0 replicates_per_model=8 threads=2 random=std-mt19937_64 seed_derivation=splitmix64(seed+2*replicate+model) model_index_uniform=0 model_index_scan=1
+summary model=uniform_accepted n=8 mean=35.044915582023442 lower_tail_count=6 monte_carlo_plus_one_p=0.77777777777777779
+summary model=upward_scan n=8 mean=59.17444617319471 lower_tail_count=0 monte_carlo_plus_one_p=0.1111111111111111
+complete jobs=16 elapsed_seconds=0.40303608299999999 output_prefix=results/gap-study-20260909/benchmark

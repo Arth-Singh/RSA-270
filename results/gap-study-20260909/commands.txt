@@ -1,0 +1,31 @@
+Working directory: /Users/arth_rogerthat/Downloads/RSA-270/.worktrees/gap-study
+Parent revision at worktree creation: 44a3da5
+Branch: codex/gap-study-20260909
+
+Final-source macOS build (the earlier compiler failure is retained separately):
+mkdir -p build/gap-study
+c++ -O3 -std=c++20 -Wall -Wextra -Wpedantic -I/opt/homebrew/opt/gmp/include results/gap-study-20260909/gap_monte_carlo.cpp -L/opt/homebrew/opt/gmp/lib -lgmpxx -lgmp -pthread -o build/gap-study/gap_monte_carlo > results/gap-study-20260909/build.log 2>&1
+
+Exact basin, boundary, and accepted-composite tests:
+build/gap-study/gap_monte_carlo --self-test > results/gap-study-20260909/self-test.log 2>&1
+
+Eight-dataset benchmark with every sampled factor and predecessor retained:
+build/gap-study/gap_monte_carlo --replicates 8 --threads 2 --seed 20260909 --save-factors --output-prefix results/gap-study-20260909/benchmark > results/gap-study-20260909/benchmark.log 2>&1
+
+Main local pilot (two worker threads, no saved factor-level detail):
+build/gap-study/gap_monte_carlo --replicates 4096 --threads 2 --seed 20260909 --output-prefix results/gap-study-20260909/pilot > results/gap-study-20260909/pilot.log 2>&1
+
+Thread-count reproducibility run:
+build/gap-study/gap_monte_carlo --replicates 8 --threads 1 --seed 20260909 --save-factors --output-prefix results/gap-study-20260909/reproducibility > results/gap-study-20260909/reproducibility.log 2>&1
+python3 results/gap-study-20260909/check_reproducibility.py > results/gap-study-20260909/reproducibility-check.log 2>&1
+
+Independent Python audit of the observed gaps and all benchmark factor details:
+python3 results/gap-study-20260909/audit.py --observed results/gap-study-20260909/benchmark.observed.tsv --factors results/gap-study-20260909/benchmark.factors.tsv --samples results/gap-study-20260909/benchmark.samples.tsv > results/gap-study-20260909/audit.log 2>&1
+
+Analyzer validation and summaries:
+python3 results/gap-study-20260909/analyze.py --self-test > results/gap-study-20260909/analyzer-self-test.log 2>&1
+python3 results/gap-study-20260909/analyze.py --observed results/gap-study-20260909/benchmark.observed.tsv results/gap-study-20260909/benchmark.samples.tsv > results/gap-study-20260909/benchmark.summary.json
+python3 results/gap-study-20260909/analyze.py --observed results/gap-study-20260909/pilot.observed.tsv results/gap-study-20260909/pilot.samples.tsv > results/gap-study-20260909/pilot.summary.json
+
+Manifest with input, source, binary and output SHA-256 hashes:
+python3 results/gap-study-20260909/make_manifest.py > results/gap-study-20260909/manifest.json

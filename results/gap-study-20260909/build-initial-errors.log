@@ -1,0 +1,97 @@
+results/gap-study-20260909/gap_monte_carlo.cpp:194:17: error: conversion from 'uint64_t' (aka 'unsigned long long') to 'mpz_class' (aka '__gmp_expr<__mpz_struct[1], __mpz_struct[1]>') is ambiguous
+  194 |       mpz_class candidate = low + residue;
+      |                 ^           ~~~~~~~~~~~~~
+/opt/homebrew/opt/gmp/include/gmpxx.h:1646:3: note: candidate constructor
+ 1646 |   __GMPXX_DEFINE_ARITHMETIC_CONSTRUCTORS
+      |   ^
+/opt/homebrew/opt/gmp/include/gmpxx.h:1515:3: note: expanded from macro '__GMPXX_DEFINE_ARITHMETIC_CONSTRUCTORS'
+ 1515 |   __gmp_expr(signed char c) { init_si(c); }             \
+      |   ^
+/opt/homebrew/opt/gmp/include/gmpxx.h:1646:3: note: candidate constructor
+/opt/homebrew/opt/gmp/include/gmpxx.h:1516:3: note: expanded from macro '__GMPXX_DEFINE_ARITHMETIC_CONSTRUCTORS'
+ 1516 |   __gmp_expr(unsigned char c) { init_ui(c); }           \
+      |   ^
+/opt/homebrew/opt/gmp/include/gmpxx.h:1646:3: note: candidate constructor
+/opt/homebrew/opt/gmp/include/gmpxx.h:1517:3: note: expanded from macro '__GMPXX_DEFINE_ARITHMETIC_CONSTRUCTORS'
+ 1517 |   __gmp_expr(signed int i) { init_si(i); }              \
+      |   ^
+/opt/homebrew/opt/gmp/include/gmpxx.h:1646:3: note: candidate constructor
+/opt/homebrew/opt/gmp/include/gmpxx.h:1518:3: note: expanded from macro '__GMPXX_DEFINE_ARITHMETIC_CONSTRUCTORS'
+ 1518 |   __gmp_expr(unsigned int i) { init_ui(i); }            \
+      |   ^
+/opt/homebrew/opt/gmp/include/gmpxx.h:1646:3: note: candidate constructor
+/opt/homebrew/opt/gmp/include/gmpxx.h:1519:3: note: expanded from macro '__GMPXX_DEFINE_ARITHMETIC_CONSTRUCTORS'
+ 1519 |   __gmp_expr(signed short int s) { init_si(s); }        \
+      |   ^
+/opt/homebrew/opt/gmp/include/gmpxx.h:1646:3: note: candidate constructor
+/opt/homebrew/opt/gmp/include/gmpxx.h:1520:3: note: expanded from macro '__GMPXX_DEFINE_ARITHMETIC_CONSTRUCTORS'
+ 1520 |   __gmp_expr(unsigned short int s) { init_ui(s); }      \
+      |   ^
+/opt/homebrew/opt/gmp/include/gmpxx.h:1646:3: note: candidate constructor
+/opt/homebrew/opt/gmp/include/gmpxx.h:1521:3: note: expanded from macro '__GMPXX_DEFINE_ARITHMETIC_CONSTRUCTORS'
+ 1521 |   __gmp_expr(signed long int l) { init_si(l); }         \
+      |   ^
+/opt/homebrew/opt/gmp/include/gmpxx.h:1646:3: note: candidate constructor
+/opt/homebrew/opt/gmp/include/gmpxx.h:1522:3: note: expanded from macro '__GMPXX_DEFINE_ARITHMETIC_CONSTRUCTORS'
+ 1522 |   __gmp_expr(unsigned long int l) { init_ui(l); }       \
+      |   ^
+/opt/homebrew/opt/gmp/include/gmpxx.h:1646:3: note: candidate constructor
+/opt/homebrew/opt/gmp/include/gmpxx.h:1523:3: note: expanded from macro '__GMPXX_DEFINE_ARITHMETIC_CONSTRUCTORS'
+ 1523 |   __gmp_expr(float f) { init_d(f); }                    \
+      |   ^
+/opt/homebrew/opt/gmp/include/gmpxx.h:1646:3: note: candidate constructor
+/opt/homebrew/opt/gmp/include/gmpxx.h:1524:3: note: expanded from macro '__GMPXX_DEFINE_ARITHMETIC_CONSTRUCTORS'
+ 1524 |   __gmp_expr(double d) { init_d(d); }
+      |   ^
+results/gap-study-20260909/gap_monte_carlo.cpp:197:36: error: no member named 'get_ui' in '__gmp_expr<__mpz_struct[1], __gmp_binary_expr<__gmp_expr<mpz_t, mpz_t>, __gmp_expr<mpz_t, mpz_t>, __gmp_binary_minus>>'
+  197 |       ++starts[(final - range.low).get_ui()];
+      |                ~~~~~~~~~~~~~~~~~~~ ^
+results/gap-study-20260909/gap_monte_carlo.cpp:199:55: error: no member named 'get_ui' in '__gmp_expr<__mpz_struct[1], __gmp_binary_expr<__gmp_expr<mpz_t, mpz_t>, __gmp_expr<mpz_t, mpz_t>, __gmp_binary_minus>>'
+  199 |         ++rejection_preimages[(candidate - range.low).get_ui()];
+      |                               ~~~~~~~~~~~~~~~~~~~~~~~ ^
+results/gap-study-20260909/gap_monte_carlo.cpp:203:17: error: conversion from 'uint64_t' (aka 'unsigned long long') to 'mpz_class' (aka '__gmp_expr<__mpz_struct[1], __mpz_struct[1]>') is ambiguous
+  203 |       mpz_class prime = low + offset;
+      |                 ^       ~~~~~~~~~~~~
+/opt/homebrew/opt/gmp/include/gmpxx.h:1646:3: note: candidate constructor
+ 1646 |   __GMPXX_DEFINE_ARITHMETIC_CONSTRUCTORS
+      |   ^
+/opt/homebrew/opt/gmp/include/gmpxx.h:1515:3: note: expanded from macro '__GMPXX_DEFINE_ARITHMETIC_CONSTRUCTORS'
+ 1515 |   __gmp_expr(signed char c) { init_si(c); }             \
+      |   ^
+/opt/homebrew/opt/gmp/include/gmpxx.h:1646:3: note: candidate constructor
+/opt/homebrew/opt/gmp/include/gmpxx.h:1516:3: note: expanded from macro '__GMPXX_DEFINE_ARITHMETIC_CONSTRUCTORS'
+ 1516 |   __gmp_expr(unsigned char c) { init_ui(c); }           \
+      |   ^
+/opt/homebrew/opt/gmp/include/gmpxx.h:1646:3: note: candidate constructor
+/opt/homebrew/opt/gmp/include/gmpxx.h:1517:3: note: expanded from macro '__GMPXX_DEFINE_ARITHMETIC_CONSTRUCTORS'
+ 1517 |   __gmp_expr(signed int i) { init_si(i); }              \
+      |   ^
+/opt/homebrew/opt/gmp/include/gmpxx.h:1646:3: note: candidate constructor
+/opt/homebrew/opt/gmp/include/gmpxx.h:1518:3: note: expanded from macro '__GMPXX_DEFINE_ARITHMETIC_CONSTRUCTORS'
+ 1518 |   __gmp_expr(unsigned int i) { init_ui(i); }            \
+      |   ^
+/opt/homebrew/opt/gmp/include/gmpxx.h:1646:3: note: candidate constructor
+/opt/homebrew/opt/gmp/include/gmpxx.h:1519:3: note: expanded from macro '__GMPXX_DEFINE_ARITHMETIC_CONSTRUCTORS'
+ 1519 |   __gmp_expr(signed short int s) { init_si(s); }        \
+      |   ^
+/opt/homebrew/opt/gmp/include/gmpxx.h:1646:3: note: candidate constructor
+/opt/homebrew/opt/gmp/include/gmpxx.h:1520:3: note: expanded from macro '__GMPXX_DEFINE_ARITHMETIC_CONSTRUCTORS'
+ 1520 |   __gmp_expr(unsigned short int s) { init_ui(s); }      \
+      |   ^
+/opt/homebrew/opt/gmp/include/gmpxx.h:1646:3: note: candidate constructor
+/opt/homebrew/opt/gmp/include/gmpxx.h:1521:3: note: expanded from macro '__GMPXX_DEFINE_ARITHMETIC_CONSTRUCTORS'
+ 1521 |   __gmp_expr(signed long int l) { init_si(l); }         \
+      |   ^
+/opt/homebrew/opt/gmp/include/gmpxx.h:1646:3: note: candidate constructor
+/opt/homebrew/opt/gmp/include/gmpxx.h:1522:3: note: expanded from macro '__GMPXX_DEFINE_ARITHMETIC_CONSTRUCTORS'
+ 1522 |   __gmp_expr(unsigned long int l) { init_ui(l); }       \
+      |   ^
+/opt/homebrew/opt/gmp/include/gmpxx.h:1646:3: note: candidate constructor
+/opt/homebrew/opt/gmp/include/gmpxx.h:1523:3: note: expanded from macro '__GMPXX_DEFINE_ARITHMETIC_CONSTRUCTORS'
+ 1523 |   __gmp_expr(float f) { init_d(f); }                    \
+      |   ^
+/opt/homebrew/opt/gmp/include/gmpxx.h:1646:3: note: candidate constructor
+/opt/homebrew/opt/gmp/include/gmpxx.h:1524:3: note: expanded from macro '__GMPXX_DEFINE_ARITHMETIC_CONSTRUCTORS'
+ 1524 |   __gmp_expr(double d) { init_d(d); }
+      |   ^
+4 errors generated.
