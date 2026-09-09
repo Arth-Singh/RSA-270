@@ -1,0 +1,25 @@
+started=2026-09-09T08:21:57Z
+d9a860e35ab2c6fe513d13922b0912bc04409bf5
+ef992039a0e6d95df613c99cab13872bc327c1925ac9995b1de120828956ba1c  results/gap-study-20260909/gap_monte_carlo.cpp
+19d713f80b853a85210215498debeaf98ccf18f06c32761d7ddd1be34f27ca99  data/solved_decimal_challenge.tsv
+g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+Copyright (C) 2023 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
++ g++ -O3 -std=c++20 -Wall -Wextra -Wpedantic results/gap-study-20260909/gap_monte_carlo.cpp -lgmpxx -lgmp -pthread -o build/current/gap_monte_carlo
++ sha256sum build/current/gap_monte_carlo
+37dd5d6e669cfa413b31eda39df59d5fad3818bb4678a435e00932ce997a5eb0  build/current/gap_monte_carlo
++ build/current/gap_monte_carlo --self-test
+self_test=PASSED raw_preimages=4080 accepted_basins=250 cyclic_endpoints=8 accepted_composite=8321
++ timeout 600 build/current/gap_monte_carlo --replicates 131072 --threads 128 --seed 20260910 --output-prefix results/gap-study-20260909/vm
+model=old-RSAREF exact_predicate=yes exponent=3 factors=34 decimal_labels=automatically_satisfied cyclic_endpoints=yes
+observed normalized_gap_sum=41.260233365853622 log_normalized_gap_sum=-5.0137006313045713
+run seed=20260910 first_replicate=0 replicates_per_model=131072 threads=128 random=std-mt19937_64 seed_derivation=splitmix64(seed+2*replicate+model) model_index_uniform=0 model_index_scan=1
+summary model=uniform_accepted n=131072 mean=33.991495638376087 lower_tail_count=117263 monte_carlo_plus_one_p=0.89464649470142588
+summary model=upward_scan n=131072 mean=66.721048196458483 lower_tail_count=10 monte_carlo_plus_one_p=8.3922699564364893e-05
+complete jobs=262144 elapsed_seconds=245.991298306 output_prefix=results/gap-study-20260909/vm
++ code=0
+++ date -u +%FT%TZ
++ echo 'driver_exit=0 ended=2026-09-09T08:26:05Z'
+driver_exit=0 ended=2026-09-09T08:26:05Z

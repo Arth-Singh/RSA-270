@@ -1,0 +1,37 @@
+self-test pass: planted state family exists
+self-test pass: raw-word/post planted state verifies
+self-test pass: raw-word/post wrong transition rejected (carry case)
+MATCH candidate=305441741 family=raw-word-be-at0 transition=post width=16 state=1234abcd000000000000000000000000
+TARGET digit_bits=16 p=566879187314564045290632023552654825424684619055618625673729192336732415772044410627240584424880223386887430750249983916840811133236119 q=341823358900432302866798156062540673476626274265983526985406877173289905534778305250810497464814437517915038301146202494799282222692863 product_match=yes
+summary mode=raw-word candidates=600 tested_state_transition_variants=572 result=product-match elapsed=0.002 rate_Mvariants_s=0.314
+self-test pass: raw-word/post scan over planted range
+summary mode=raw-word candidates=600 tested_state_transition_variants=31200 result=none elapsed=0.002 rate_Mvariants_s=15.201
+self-test pass: raw-word/post scan over range without seed
+self-test pass: raw-word/pre planted state verifies
+self-test pass: raw-word/pre wrong transition rejected (carry case)
+MATCH candidate=305441741 family=raw-word-be-at0 transition=pre width=16 state=1234abcd000000000000000000000000
+TARGET digit_bits=16 p=685906593793896609643100928120307982309174457796132717842307965264729693657316702904330891910176817894289208851831621077444671421344381 q=335883713723097157807745427706151615717207669422597549063714612997847740580255671830585390081213072144692663909982099017290357807731529 product_match=yes
+summary mode=raw-word candidates=600 tested_state_transition_variants=468 result=product-match elapsed=0.001 rate_Mvariants_s=0.715
+self-test pass: raw-word/pre scan over planted range
+summary mode=raw-word candidates=600 tested_state_transition_variants=31200 result=none elapsed=0.002 rate_Mvariants_s=14.879
+self-test pass: raw-word/pre scan over range without seed
+self-test pass: planted state family exists
+self-test pass: md5-word/post planted state verifies
+MATCH candidate=12648430 family=md5-word-le transition=post width=16 state=256f39438f52424548202cd0ebd8b1b4
+TARGET digit_bits=16 p=693625556851436892276166906802498504005223072692248623563413287328895407689447124499542783700659766198410778795811978699727644991122411 q=326606012740968647196908570943159105034564573472367738533003338138095706545982810360551065161651338399983628194977682286617133530882651 product_match=yes
+MATCH candidate=12648430 family=md5-word-le transition=pre width=16 state=256f39438f52424548202cd0ebd8b1b4
+TARGET digit_bits=16 p=693625556851436892276166906802498504005223072692248623563413287328895407689447124499542783700659766198410778795811978699727644991122411 q=326606012740968647196908570943159105034564573472367738533003338138095706545982810360551065161651338399983628194977682286617133530882651 product_match=yes
+summary mode=md5-word candidates=600 tested_state_transition_variants=420 result=product-match elapsed=0.010 rate_Mvariants_s=0.042
+self-test pass: md5-word/post scan over planted range
+summary mode=md5-word candidates=600 tested_state_transition_variants=2400 result=none elapsed=0.000 rate_Mvariants_s=7.541
+self-test pass: md5-word/post scan over range without seed
+self-test pass: md5-word/pre planted state verifies
+MATCH candidate=12648430 family=md5-word-le transition=post width=16 state=256f39438f52424548202cd0ebd8b1b4
+TARGET digit_bits=16 p=693625556851436892276166906802498504005223072692248623563413287328895407689447124499542783700659766198410778795811978699727644991122411 q=326606012740968647196908570943159105034564573472367738533003338138095706545982810360551065161651338399983628194977682286617133530882651 product_match=yes
+MATCH candidate=12648430 family=md5-word-le transition=pre width=16 state=256f39438f52424548202cd0ebd8b1b4
+TARGET digit_bits=16 p=693625556851436892276166906802498504005223072692248623563413287328895407689447124499542783700659766198410778795811978699727644991122411 q=326606012740968647196908570943159105034564573472367738533003338138095706545982810360551065161651338399983628194977682286617133530882651 product_match=yes
+summary mode=md5-word candidates=600 tested_state_transition_variants=316 result=product-match elapsed=0.010 rate_Mvariants_s=0.032
+self-test pass: md5-word/pre scan over planted range
+summary mode=md5-word candidates=600 tested_state_transition_variants=2400 result=none elapsed=0.000 rate_Mvariants_s=7.138
+self-test pass: md5-word/pre scan over range without seed
+self-test PASSED

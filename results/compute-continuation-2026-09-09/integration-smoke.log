@@ -1,0 +1,12 @@
+c++ -O3 -std=c++20 -Wall -Wno-deprecated-declarations -I/opt/homebrew/opt/gmp/include -I/opt/homebrew/opt/openssl@3/include src/md1.cpp src/noise_hamming_scan.cpp -L/opt/homebrew/opt/gmp/lib -L/opt/homebrew/opt/openssl@3/lib -lgmpxx -lgmp -lcrypto -pthread -o build/current/noise_hamming_scan
+test "$(build/current/md1_cli abc)" = 74594a0a73b03503efe62e574dbaf816 && echo "md1 known answer: ok"
+md1 known answer: ok
+build/current/rsaref_md5_state_scan md5-word 0 1000 2 4; test $? -le 1 && echo "rsaref_md5_state_scan tiny run: ok"
+summary mode=md5-word candidates=1000 tested_state_transition_variants=4000 result=none elapsed=0.000 rate_Mvariants_s=8.922
+rsaref_md5_state_scan tiny run: ok
+build/current/rsaref_md5_state_scan self-test | tail -1 | grep -q PASSED && echo "rsaref_md5_state_scan self-test: ok"
+rsaref_md5_state_scan self-test: ok
+build/current/noise_hamming_scan self-test
+SELF_TEST PASSED seeded_packing_controls=1008 enumeration_controls=8 digest_kats=6 counter_carries=6 classification_controls=2
+python3 src/rsaref_stream_reconstruct.py > /dev/null && echo "rsaref_stream_reconstruct: ok"
+rsaref_stream_reconstruct: ok

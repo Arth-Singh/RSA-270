@@ -1,0 +1,2 @@
+config digest=md1 encodings=50 sample_counts=17 arithmetic_orders=2 counters=2 configured_states=1040600 begin=0 end=65536 threads=128 stream_bytes=16384 targets=34 patterns=1404 starts=independent-complete-buffers-only seed_byte_gate=not-enforced candidate_modes=truncate,top1,top2;odd;upward-or-fresh
+summary states=65536 windows=1073283072 fingerprint_hits=0 interior_pattern_hits=0 candidate_interval_hits=0 fresh_candidate_hits=0 elapsed_seconds=6.39831 streams_per_second=10242.7 factorization=no

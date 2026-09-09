@@ -4,7 +4,7 @@ Implementation date: 2026-09-09. Branch: `codex/noise-hamming-20260909`.
 
 ## Outcome
 
-A separate `src/noise_hamming_scan.cpp` is ready for a bounded VM run. Its local controls pass. The local pilot found no fingerprint, interior-pattern, or candidate-interval hits. No factorization or recovered challenge-generator state is claimed.
+A separate `src/noise_hamming_scan.cpp` was implemented and its local controls passed. The local pilot found no fingerprint, interior-pattern, or candidate-interval hits. The subsequent full 16 KiB VM run also found no hits in 2,081,200 configured streams; see `results/noise-hamming-vm-2026-09-09/README.md`. No factorization or recovered challenge-generator state is claimed. The rest of this report preserves the local implementation and pilot record.
 
 No existing scanner, sweep driver, Makefile, or project documentation was modified. The companion `scripts/test_noise_hamming_scan.py` verifies the MD5 paths with Python `hashlib`.
 

@@ -1,0 +1,7 @@
+# Primary-source downloads remain preserved locally. Commit provenance and the
+# research report, without redistributing publisher pages or rendered copies.
+*.pdf
+*.png
+dusse-kaliski.txt
+*-mirror.html
+ftp-listing.txt

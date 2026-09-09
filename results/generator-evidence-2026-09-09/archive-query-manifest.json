@@ -1,0 +1,17 @@
+[
+  {
+    "filename": "discmaster-rsa-dsp.json",
+    "url": "https://discmaster.textfiles.com/search?q=%22RSA+DSP%22&qfields=t&mode=deep&limit=100&outputAs=json",
+    "error": "The read operation timed out"
+  },
+  {
+    "filename": "discmaster-cnd6002a.json",
+    "url": "https://discmaster.textfiles.com/search?q=CND6002A&qfields=t&mode=deep&limit=100&outputAs=json",
+    "error": "The read operation timed out"
+  },
+  {
+    "filename": "discmaster-56000-rsa.json",
+    "url": "https://discmaster.textfiles.com/search?q=56000&qfields=t&mode=deep&itemid=17453&limit=100&outputAs=json",
+    "error": "The read operation timed out"
+  }
+]

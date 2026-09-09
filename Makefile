@@ -20,7 +20,7 @@ endif
 GMP_LIBS := -lgmpxx -lgmp
 SSL_LIBS := -lcrypto
 
-TARGETS := md1_cli md1_hamming_scan bsafe1_rng_scan rsaref_md5_state_scan \
+TARGETS := md1_cli md1_hamming_scan noise_hamming_scan bsafe1_rng_scan rsaref_md5_state_scan \
 	       seed_scan noise_time_scan rng_stats snfs_scan
 
 .PHONY: all smoke clean
@@ -34,6 +34,9 @@ $(BIN)/md1_cli: src/md1.cpp src/md1_cli.cpp src/md1.hpp | $(BIN)
 
 $(BIN)/md1_hamming_scan: src/md1.cpp src/md1_hamming_scan.cpp src/md1.hpp | $(BIN)
 	$(CXX) $(CXXFLAGS) $(CPPFLAGS) src/md1.cpp src/md1_hamming_scan.cpp $(LDFLAGS) $(GMP_LIBS) -o $@
+
+$(BIN)/noise_hamming_scan: src/md1.cpp src/noise_hamming_scan.cpp src/md1.hpp | $(BIN)
+	$(CXX) $(CXXFLAGS) $(CPPFLAGS) src/md1.cpp src/noise_hamming_scan.cpp $(LDFLAGS) $(GMP_LIBS) $(SSL_LIBS) -pthread -o $@
 
 $(BIN)/bsafe1_rng_scan: src/bsafe1_rng_scan.cpp | $(BIN)
 	$(CXX) $(CXXFLAGS) $(CPPFLAGS) $< $(LDFLAGS) $(GMP_LIBS) -o $@
@@ -54,10 +57,11 @@ $(BIN)/snfs_scan: src/snfs_scan.cpp | $(BIN)
 	$(CXX) $(CXXFLAGS) $(CPPFLAGS) $< $(LDFLAGS) $(GMP_LIBS) -o $@
 
 # Known-answer and tiny-run checks. A scanner exit status of 1 means "no modeled state matched", which is the expected outcome.
-smoke: $(BIN)/md1_cli $(BIN)/rsaref_md5_state_scan
+smoke: $(BIN)/md1_cli $(BIN)/rsaref_md5_state_scan $(BIN)/noise_hamming_scan
 	test "$$($(BIN)/md1_cli abc)" = 74594a0a73b03503efe62e574dbaf816 && echo "md1 known answer: ok"
 	$(BIN)/rsaref_md5_state_scan md5-word 0 1000 2 4; test $$? -le 1 && echo "rsaref_md5_state_scan tiny run: ok"
 	$(BIN)/rsaref_md5_state_scan self-test | tail -1 | grep -q PASSED && echo "rsaref_md5_state_scan self-test: ok"
+	$(BIN)/noise_hamming_scan self-test
 	python3 src/rsaref_stream_reconstruct.py > /dev/null && echo "rsaref_stream_reconstruct: ok"
 
 clean:

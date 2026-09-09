@@ -1,0 +1,41 @@
+{
+  "factors": 34,
+  "interpretation": "Conditional model comparison only; statistic was selected after inspecting this corpus, so p values are not a confirmatory historical-attribution test.",
+  "models": {
+    "uniform_accepted": {
+      "datasets": 131072,
+      "lower_tail_count": 117263,
+      "lower_tail_frequency": 0.8946456909179688,
+      "lower_tail_probability_95pct_clopper_pearson": [
+        0.8929710843462608,
+        0.8963028156785928
+      ],
+      "max": 66.91007157738436,
+      "mean": 33.99149563837591,
+      "mean_mc_standard_error": 0.01573083387517175,
+      "median": 33.66617016052949,
+      "min": 14.430524617287418,
+      "monte_carlo_plus_one_p": 0.8946464947014259,
+      "sd": 5.695170205108737
+    },
+    "upward_scan": {
+      "datasets": 131072,
+      "lower_tail_count": 10,
+      "lower_tail_frequency": 7.62939453125e-05,
+      "lower_tail_probability_95pct_clopper_pearson": [
+        3.658649912413603e-05,
+        0.00014030279106288336
+      ],
+      "max": 110.44464683731546,
+      "mean": 66.72104819645989,
+      "mean_mc_standard_error": 0.022296811408136802,
+      "median": 66.37351339621699,
+      "min": 36.35675235211116,
+      "monte_carlo_plus_one_p": 8.392269956436489e-05,
+      "sd": 8.072307991311927
+    }
+  },
+  "observed": 41.26023336585363,
+  "sampling": "Direct independent datasets with actual 34 bit lengths; no empirical-pool bootstrap or importance weights.",
+  "statistic": "sum(previous accepted cyclic gap / (2 * ln(output value)))"
+}

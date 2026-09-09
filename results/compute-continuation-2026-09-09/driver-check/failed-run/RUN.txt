@@ -1,0 +1,12 @@
+commit=f805f6ca56ac6e278e62e072b3d9f49e8ceb8557
+source_sha256=640e1327f201fc99795c821e5e642127497caaaf42e86eb9bead6552564a9b7b
+host=Arths-MacBook-Air.local threads=1 scope=lcg started=2026-09-09T08:26:35Z
+build_command=make -C /Users/arth_rogerthat/Downloads/RSA-270/results/compute-continuation-2026-09-09/driver-check/fixture -B build/current/rsaref_md5_state_scan
+LCG coverage: seeds differing by multiples of 2^24 produce identical bytes; [0,2^24) covers [0,2^32).
+binary_sha256=c90028bc859f76c11977e64b8329325be8fbd794f092974c387261656c3d4bc6
+self-test passed
+ansi-rand w4 start=2026-09-09T08:26:36Z
+command=/Users/arth_rogerthat/Downloads/RSA-270/results/compute-continuation-2026-09-09/driver-check/fixture/build/current/rsaref_md5_state_scan ansi-rand 0 16777216 1 4
+ansi-rand w4 exit=2 intentional scanner argument failure
+FAILED: scanner exit=2 for ansi-rand w4
+driver_exit=2 ended=2026-09-09T08:26:36Z

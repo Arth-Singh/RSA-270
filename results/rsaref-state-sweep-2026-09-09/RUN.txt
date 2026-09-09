@@ -1,0 +1,48 @@
+commit=d9a860e35ab2c6fe513d13922b0912bc04409bf5
+source_sha256=ec3520653e3667a3619c4cf3cf2541e9aa49ca9addfb1a23f361c17edd8ce6e5
+host=computeinstance-e00jqatjfqrdt37c94 threads=128 started=2026-09-09T08:03:40Z
+self-test passed
+raw-word w1 start=2026-09-09T08:03:40Z
+raw-word w1 exit=1 summary mode=raw-word candidates=256 tested_state_transition_variants=16384 result=none elapsed=0.008 rate_Mvariants_s=2.054
+raw-word w2 start=2026-09-09T08:03:40Z
+raw-word w2 exit=1 summary mode=raw-word candidates=65536 tested_state_transition_variants=3932160 result=none elapsed=0.019 rate_Mvariants_s=202.925
+raw-word w3 start=2026-09-09T08:03:40Z
+raw-word w3 exit=1 summary mode=raw-word candidates=16777216 tested_state_transition_variants=939524096 result=none elapsed=2.493 rate_Mvariants_s=376.871
+raw-word w4 start=2026-09-09T08:03:42Z
+raw-word w4 exit=1 summary mode=raw-word candidates=4294967296 tested_state_transition_variants=223338299392 result=none elapsed=586.864 rate_Mvariants_s=380.562
+raw-repeat-word w1 start=2026-09-09T08:13:29Z
+raw-repeat-word w1 exit=1 summary mode=raw-repeat-word candidates=256 tested_state_transition_variants=1024 result=none elapsed=0.008 rate_Mvariants_s=0.133
+raw-repeat-word w2 start=2026-09-09T08:13:29Z
+raw-repeat-word w2 exit=1 summary mode=raw-repeat-word candidates=65536 tested_state_transition_variants=262144 result=none elapsed=0.008 rate_Mvariants_s=32.623
+raw-repeat-word w3 start=2026-09-09T08:13:29Z
+raw-repeat-word w3 exit=1 summary mode=raw-repeat-word candidates=16777216 tested_state_transition_variants=67108864 result=none elapsed=0.202 rate_Mvariants_s=332.556
+raw-repeat-word w4 start=2026-09-09T08:13:29Z
+raw-repeat-word w4 exit=1 summary mode=raw-repeat-word candidates=4294967296 tested_state_transition_variants=17179869184 result=none elapsed=49.786 rate_Mvariants_s=345.071
+md5-word w1 start=2026-09-09T08:14:19Z
+md5-word w1 exit=1 summary mode=md5-word candidates=256 tested_state_transition_variants=1024 result=none elapsed=0.008 rate_Mvariants_s=0.136
+md5-word w2 start=2026-09-09T08:14:19Z
+md5-word w2 exit=1 summary mode=md5-word candidates=65536 tested_state_transition_variants=262144 result=none elapsed=0.009 rate_Mvariants_s=30.476
+md5-word w3 start=2026-09-09T08:14:19Z
+md5-word w3 exit=1 summary mode=md5-word candidates=16777216 tested_state_transition_variants=67108864 result=none elapsed=0.223 rate_Mvariants_s=301.346
+md5-word w4 start=2026-09-09T08:14:19Z
+md5-word w4 exit=1 summary mode=md5-word candidates=4294967296 tested_state_transition_variants=17179869184 result=none elapsed=55.217 rate_Mvariants_s=311.136
+md5-word-times64 w1 start=2026-09-09T08:15:15Z
+md5-word-times64 w1 exit=1 summary mode=md5-word-times64 candidates=256 tested_state_transition_variants=1024 result=none elapsed=0.008 rate_Mvariants_s=0.133
+md5-word-times64 w2 start=2026-09-09T08:15:15Z
+md5-word-times64 w2 exit=1 summary mode=md5-word-times64 candidates=65536 tested_state_transition_variants=262144 result=none elapsed=0.008 rate_Mvariants_s=31.594
+md5-word-times64 w3 start=2026-09-09T08:15:15Z
+md5-word-times64 w3 exit=1 summary mode=md5-word-times64 candidates=16777216 tested_state_transition_variants=67108864 result=none elapsed=0.236 rate_Mvariants_s=283.974
+md5-word-times64 w4 start=2026-09-09T08:15:15Z
+md5-word-times64 w4 exit=1 summary mode=md5-word-times64 candidates=4294967296 tested_state_transition_variants=17179869184 result=none elapsed=58.974 rate_Mvariants_s=291.313
+md5-repeat-buffer w1 start=2026-09-09T08:16:14Z
+md5-repeat-buffer w1 exit=1 summary mode=md5-repeat-buffer candidates=256 tested_state_transition_variants=1024 result=none elapsed=0.008 rate_Mvariants_s=0.134
+md5-repeat-buffer w2 start=2026-09-09T08:16:14Z
+md5-repeat-buffer w2 exit=1 summary mode=md5-repeat-buffer candidates=65536 tested_state_transition_variants=262144 result=none elapsed=0.009 rate_Mvariants_s=28.327
+md5-repeat-buffer w3 start=2026-09-09T08:16:14Z
+md5-repeat-buffer w3 exit=1 summary mode=md5-repeat-buffer candidates=16777216 tested_state_transition_variants=67108864 result=none elapsed=0.529 rate_Mvariants_s=126.911
+md5-repeat-buffer w4 start=2026-09-09T08:16:14Z
+md5-repeat-buffer w4 exit=1 summary mode=md5-repeat-buffer candidates=4294967296 tested_state_transition_variants=17179869184 result=none elapsed=130.510 rate_Mvariants_s=131.637
+ansi-rand w4 start=2026-09-09T08:18:25Z
+ansi-rand w4 exit=1 summary mode=ansi-rand candidates=4294967296 tested_state_transition_variants=8589934592 result=none elapsed=52.994 rate_Mvariants_s=162.092
+ms-rand w4 start=2026-09-09T08:19:18Z
+operator_stop=2026-09-09T08:19:40.544376+00:00 reason=LCG streams repeat every 2^24 seeds; remaining LCG coverage will run separately; interrupted ranges are not completed negatives

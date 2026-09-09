@@ -1,0 +1,26 @@
+started=2026-09-09T08:34:49Z
+d9a860e35ab2c6fe513d13922b0912bc04409bf5
+48188e1f0e5b39270c7de1f537e3c4063b0a4ee8e3c2f534d34c8db832bd0c6a  src/noise_hamming_scan.cpp
+4c1dc13a780b5cec7e47b84265eea3094f4c4b89c74165565a4faa302b72119f  src/md1.cpp
+339a314f541eb81466d462018107a4e46895888d4f56c5ca55e3226369ccb4da  src/md1.hpp
+19d713f80b853a85210215498debeaf98ccf18f06c32761d7ddd1be34f27ca99  data/solved_decimal_challenge.tsv
+g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+Copyright (C) 2023 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
++ g++ -O3 -std=c++20 -Wall -Wextra -Wno-deprecated-declarations src/md1.cpp src/noise_hamming_scan.cpp -lgmpxx -lgmp -lcrypto -pthread -o build/current/noise_hamming_scan
++ sha256sum build/current/noise_hamming_scan
+b540c8774e391f6ffff2b1d07096fb74f1e888d6195d0a8c236a95784f6bf477  build/current/noise_hamming_scan
++ build/current/noise_hamming_scan self-test
++ timeout 60 build/current/noise_hamming_scan scan --digest md1 --end 65536 --threads 128 --stream-bytes 16384
++ timeout 600 build/current/noise_hamming_scan scan --digest both --threads 128 --stream-bytes 16384
++ grep '^summary states=2081200 .*fingerprint_hits=0 interior_pattern_hits=0 candidate_interval_hits=0 fresh_candidate_hits=0 ' results/noise-hamming-vm-2026-09-09/full-scan.log
+summary states=2081200 windows=34083812400 fingerprint_hits=0 interior_pattern_hits=0 candidate_interval_hits=0 fresh_candidate_hits=0 elapsed_seconds=50.0564 streams_per_second=41577.1 factorization=no
+++ date -u +%FT%TZ
++ echo 'complete_negative_range=yes finished=2026-09-09T08:35:49Z'
+complete_negative_range=yes finished=2026-09-09T08:35:49Z
++ code=0
+++ date -u +%FT%TZ
++ echo 'driver_exit=0 ended=2026-09-09T08:35:49Z'
+driver_exit=0 ended=2026-09-09T08:35:49Z

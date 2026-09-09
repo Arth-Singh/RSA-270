@@ -20,12 +20,19 @@ No entry establishes a factorization of RSA-270.
 | Raw MD5 low-32-bit states | Entire 2^32 space with twelve leading zero bytes; no hit to three explicit block targets | Observed completion. Endian runs duplicate the same set when offset=0. Does not cover arbitrary 32-bit seed placement or full 128-bit states. |
 | MD5 timestamp families | 18 combinations of seed family, word byte order, and fixed stream anchor offset; all completed with no match | Observed. Old ordinary-counter model only; details below. |
 | LCG-filled seed buffers | 18 jobs launched for ANSI/MS/Borland families; final polling interrupted | Outcomes unknown. Do not label completed or negative. Endian duplicates exist because these LCG families ignore seed byte encoding. |
-| New RSAREF state scanner | Source and binary survive, tests both counter transitions and all deterministic anchors | No completed broad range recorded. Do not credit the older scanner's negative coverage to this one. |
+| New RSAREF state scanner | September 9: all five word families over widths 1..4 and all three distinct LCG seed spaces completed with no match | Independent controls and complete logs retained. LCG streams repeat every 2^24 seeds; original interrupted MS run is not counted. See continuation record below. |
 | Factor interior statistics | No robust finding after multiple-comparison adjustments | Reported exact summaries below. |
 | Conditional stream reconstruction | 512 order variants, three digit widths; no equal/complement full-block repeats | Rechecked at handoff; masks saved. This does not prove the stream model historically correct. |
-| Predecessor-gap model | Tentative evidence against uniform-start upward scanning | Approximate analysis only; matched controls unfinished. |
+| Predecessor-gap model | September 9: 131,072 direct datasets/model; 10 upward-search scores at or below observed, plus-one p=0.000083923 | Exact old predicate, matched ranges/bit lengths, cyclic endpoints; exploratory statistic with no global multiple-testing or attribution guarantee. |
 
 ## MD1 additive binary-sample model
+
+The September 3 MD1-only result below remains historical. A separate September
+9 extension completed both MD5 and MD1, literal postfix and ordinary counters,
+two arithmetic orders, and a 16,384-byte stream bound. Its 2,081,200 configured
+streams produced zero fingerprint hits across 34,083,812,400 windows. See
+`results/noise-hamming-vm-2026-09-09/` for exact coverage and controls; neither
+experiment establishes the historical DSP seeding procedure.
 
 src/md1_hamming_scan.cpp tests this hypothetical model:
 
@@ -174,3 +181,35 @@ FactorLab's p=5+6*start followed by +6 has the same basic gap weighting if start
 - No broad seed sweep, GNFS job, or new factoring attack was started.
 - Missing /tmp artifacts were explicitly recorded rather than represented as saved.
 
+## September 9 VM continuation
+
+Full commands, source and executable provenance, per-family output, LCG
+symmetry proof, model decisions, and limitations are in
+`results/compute-continuation-2026-09-09/README.md`.
+
+- `results/rsaref-state-sweep-2026-09-09/`: 20 complete word-family negatives
+  and one complete but redundant full-32-bit ANSI-LCG negative. The following
+  MS-LCG job was intentionally stopped; no completed result is assigned to it.
+- `results/rsaref-lcg-distinct-2026-09-09/`: fresh build and all three LCG
+  ranges `[0,16777216)`, 128 threads, no matches. This covers every stream in
+  their nominal 32-bit seed spaces by exact recurrence symmetry.
+- `results/scanner-validation-2026-09-09/`: independent expected vectors,
+  carry cases, all three width paths, all real anchors, and false-product
+  controls. Synthetic hits in those logs are not RSA-270 factors.
+- `results/gap-study-20260909/`: direct pilot and VM Monte Carlo controls,
+  independent Python audit, complete sample tables, and exact confidence
+  intervals. The observed gap sum is unusually small under uniform-start
+  upward search; that weakens this conditional construction model without
+  identifying an alternative implementation or recovering a seed.
+- `results/generator-evidence-2026-09-09/`: restored primary DSP paper and
+  generation announcement mirrors. No firmware, entropy-conditioning code,
+  or challenge-specific candidate loop was recovered.
+- `results/noise-hamming-vm-2026-09-09/`: complete 16 KiB additive-noise scan,
+  with 2,081,200 configured streams and zero fingerprint/interior/interval
+  hits. This relaxes global stream alignment and covers fresh or exact-upward
+  candidate construction, but retains finite encodings/counts/offsets and
+  unproved additive seeding and packing hypotheses.
+
+All eight scanner seed families still depend on the documented continuous
+stream, formatting, and generator hypotheses. Their completed ranges do not
+exclude other seed mechanisms, skips, reseeding, or prime-generation loops.

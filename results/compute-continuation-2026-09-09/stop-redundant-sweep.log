@@ -1,0 +1,6 @@
+utc= 2026-09-09T08:19:40.544072+00:00
+driver= 36939 command= b'bash\x00scripts/rsaref_state_sweep.sh\x00results/rsaref-state-sweep-2026-09-09\x00128\x00'
+child= 40847 command= b'/home/arth/RSA-270/build/current/rsaref_md5_state_scan\x00ms-rand\x000\x004294967296\x00128\x004\x00'
+sent SIGTERM to redundant LCG scanner 40847
+sent SIGTERM to old sweep driver 36939
+    PID    PPID STAT ELAPSED COMMAND

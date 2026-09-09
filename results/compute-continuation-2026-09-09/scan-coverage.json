@@ -1,0 +1,271 @@
+[
+  {
+    "file": "results/rsaref-state-sweep-2026-09-09/ansi-rand-w4.log",
+    "mode": "ansi-rand",
+    "word_bytes": 4,
+    "candidates": 4294967296,
+    "tested_variants": 8589934592,
+    "result": "none",
+    "complete": true,
+    "seconds": 52.994,
+    "sha256": "2e513191a0e1d24c5d2a61a98a1225e8f8523eb76c10dc8c19689a37d4c6adde"
+  },
+  {
+    "file": "results/rsaref-state-sweep-2026-09-09/md5-repeat-buffer-w1.log",
+    "mode": "md5-repeat-buffer",
+    "word_bytes": 1,
+    "candidates": 256,
+    "tested_variants": 1024,
+    "result": "none",
+    "complete": true,
+    "seconds": 0.008,
+    "sha256": "c74f60e39d848cc04d9678df79c37402fa645dd4e760e8943ba5ddcb0405a5a0"
+  },
+  {
+    "file": "results/rsaref-state-sweep-2026-09-09/md5-repeat-buffer-w2.log",
+    "mode": "md5-repeat-buffer",
+    "word_bytes": 2,
+    "candidates": 65536,
+    "tested_variants": 262144,
+    "result": "none",
+    "complete": true,
+    "seconds": 0.009,
+    "sha256": "295dd989896272f0f756bc390397bdd739cecffb78bc4a384b539b402eb95d00"
+  },
+  {
+    "file": "results/rsaref-state-sweep-2026-09-09/md5-repeat-buffer-w3.log",
+    "mode": "md5-repeat-buffer",
+    "word_bytes": 3,
+    "candidates": 16777216,
+    "tested_variants": 67108864,
+    "result": "none",
+    "complete": true,
+    "seconds": 0.529,
+    "sha256": "bcbce3f391205827d5baada172541d345ed5f19e3f6946e3d87bd1ef40af2614"
+  },
+  {
+    "file": "results/rsaref-state-sweep-2026-09-09/md5-repeat-buffer-w4.log",
+    "mode": "md5-repeat-buffer",
+    "word_bytes": 4,
+    "candidates": 4294967296,
+    "tested_variants": 17179869184,
+    "result": "none",
+    "complete": true,
+    "seconds": 130.51,
+    "sha256": "759398c952202cbc44da61505f131393da849f9490cc7e208c3dd391a1a65219"
+  },
+  {
+    "file": "results/rsaref-state-sweep-2026-09-09/md5-word-times64-w1.log",
+    "mode": "md5-word-times64",
+    "word_bytes": 1,
+    "candidates": 256,
+    "tested_variants": 1024,
+    "result": "none",
+    "complete": true,
+    "seconds": 0.008,
+    "sha256": "a55fd962e8606d80dd228c800f98639c64429dba9120ad0e8acfc58e5064d1c8"
+  },
+  {
+    "file": "results/rsaref-state-sweep-2026-09-09/md5-word-times64-w2.log",
+    "mode": "md5-word-times64",
+    "word_bytes": 2,
+    "candidates": 65536,
+    "tested_variants": 262144,
+    "result": "none",
+    "complete": true,
+    "seconds": 0.008,
+    "sha256": "1b7069cc004b852ae1a13681eb645ad8566e64286bf29465931f0fe8c41e8b6a"
+  },
+  {
+    "file": "results/rsaref-state-sweep-2026-09-09/md5-word-times64-w3.log",
+    "mode": "md5-word-times64",
+    "word_bytes": 3,
+    "candidates": 16777216,
+    "tested_variants": 67108864,
+    "result": "none",
+    "complete": true,
+    "seconds": 0.236,
+    "sha256": "cd6fd2292a58f3c0ccea0d1f48d056b23290f065f435a3248f6be61158d0496c"
+  },
+  {
+    "file": "results/rsaref-state-sweep-2026-09-09/md5-word-times64-w4.log",
+    "mode": "md5-word-times64",
+    "word_bytes": 4,
+    "candidates": 4294967296,
+    "tested_variants": 17179869184,
+    "result": "none",
+    "complete": true,
+    "seconds": 58.974,
+    "sha256": "8480034c61aeb38f07cdfa7b5b47a7c620da5762762660533636942ec11ca48d"
+  },
+  {
+    "file": "results/rsaref-state-sweep-2026-09-09/md5-word-w1.log",
+    "mode": "md5-word",
+    "word_bytes": 1,
+    "candidates": 256,
+    "tested_variants": 1024,
+    "result": "none",
+    "complete": true,
+    "seconds": 0.008,
+    "sha256": "59807d4cdf6c7fe59a7be429c347d5e36c0aa045a979fc32fa90a7c87f6c52c2"
+  },
+  {
+    "file": "results/rsaref-state-sweep-2026-09-09/md5-word-w2.log",
+    "mode": "md5-word",
+    "word_bytes": 2,
+    "candidates": 65536,
+    "tested_variants": 262144,
+    "result": "none",
+    "complete": true,
+    "seconds": 0.009,
+    "sha256": "a4678b1d2bad54a281aa3c57181ba69838a51a722d75e47fe4d4b6c56e5999ea"
+  },
+  {
+    "file": "results/rsaref-state-sweep-2026-09-09/md5-word-w3.log",
+    "mode": "md5-word",
+    "word_bytes": 3,
+    "candidates": 16777216,
+    "tested_variants": 67108864,
+    "result": "none",
+    "complete": true,
+    "seconds": 0.223,
+    "sha256": "dd370bf56e91cee0b4ae798c34250704e8bb32ab4e7524b7c0007ed0a823eb59"
+  },
+  {
+    "file": "results/rsaref-state-sweep-2026-09-09/md5-word-w4.log",
+    "mode": "md5-word",
+    "word_bytes": 4,
+    "candidates": 4294967296,
+    "tested_variants": 17179869184,
+    "result": "none",
+    "complete": true,
+    "seconds": 55.217,
+    "sha256": "2cd3ef043dc9d7ec66832af7933b7b0412b1f338742dea11665493d5167d3412"
+  },
+  {
+    "file": "results/rsaref-state-sweep-2026-09-09/ms-rand-w4.log",
+    "complete": false,
+    "reason": "No terminal scanner summary; interrupted run is not negative coverage."
+  },
+  {
+    "file": "results/rsaref-state-sweep-2026-09-09/raw-repeat-word-w1.log",
+    "mode": "raw-repeat-word",
+    "word_bytes": 1,
+    "candidates": 256,
+    "tested_variants": 1024,
+    "result": "none",
+    "complete": true,
+    "seconds": 0.008,
+    "sha256": "ab0a91b3d8a88d8261d466998147a20d63309a2d80a6d495e9a4ccf4ee684e60"
+  },
+  {
+    "file": "results/rsaref-state-sweep-2026-09-09/raw-repeat-word-w2.log",
+    "mode": "raw-repeat-word",
+    "word_bytes": 2,
+    "candidates": 65536,
+    "tested_variants": 262144,
+    "result": "none",
+    "complete": true,
+    "seconds": 0.008,
+    "sha256": "5735ad904fd00856b67e76d165f99d5b26b992eeea686c37e12e8b307fe035c5"
+  },
+  {
+    "file": "results/rsaref-state-sweep-2026-09-09/raw-repeat-word-w3.log",
+    "mode": "raw-repeat-word",
+    "word_bytes": 3,
+    "candidates": 16777216,
+    "tested_variants": 67108864,
+    "result": "none",
+    "complete": true,
+    "seconds": 0.202,
+    "sha256": "fabb02b44b863ed6e21cbb6445fbda4f9e3a31a41a47fb0a73aba3d7627ca02a"
+  },
+  {
+    "file": "results/rsaref-state-sweep-2026-09-09/raw-repeat-word-w4.log",
+    "mode": "raw-repeat-word",
+    "word_bytes": 4,
+    "candidates": 4294967296,
+    "tested_variants": 17179869184,
+    "result": "none",
+    "complete": true,
+    "seconds": 49.786,
+    "sha256": "a22b41f9e21c911341a822abe60f9598644c7bcac2b95b956473a0688b1d64f4"
+  },
+  {
+    "file": "results/rsaref-state-sweep-2026-09-09/raw-word-w1.log",
+    "mode": "raw-word",
+    "word_bytes": 1,
+    "candidates": 256,
+    "tested_variants": 16384,
+    "result": "none",
+    "complete": true,
+    "seconds": 0.008,
+    "sha256": "4c6520f6d3f71aa1efbf78d3fff21b8d7417a98eeeedb1a6d7367c67c0af8f45"
+  },
+  {
+    "file": "results/rsaref-state-sweep-2026-09-09/raw-word-w2.log",
+    "mode": "raw-word",
+    "word_bytes": 2,
+    "candidates": 65536,
+    "tested_variants": 3932160,
+    "result": "none",
+    "complete": true,
+    "seconds": 0.019,
+    "sha256": "8788d03cade9490dffdfc4e82d0783014456277708fb3fef5adf9f14d6cafdd5"
+  },
+  {
+    "file": "results/rsaref-state-sweep-2026-09-09/raw-word-w3.log",
+    "mode": "raw-word",
+    "word_bytes": 3,
+    "candidates": 16777216,
+    "tested_variants": 939524096,
+    "result": "none",
+    "complete": true,
+    "seconds": 2.493,
+    "sha256": "c4e2cb654380a211bae55d54a92617648db8e4b3281a3737b6dd9b89c7ed8e0d"
+  },
+  {
+    "file": "results/rsaref-state-sweep-2026-09-09/raw-word-w4.log",
+    "mode": "raw-word",
+    "word_bytes": 4,
+    "candidates": 4294967296,
+    "tested_variants": 223338299392,
+    "result": "none",
+    "complete": true,
+    "seconds": 586.864,
+    "sha256": "2192c4c8a6ad3902a60d36f4a01d80899928ed7c2737755eff3eecd31afb253f"
+  },
+  {
+    "file": "results/rsaref-lcg-distinct-2026-09-09/ansi-rand-w4.log",
+    "mode": "ansi-rand",
+    "word_bytes": 4,
+    "candidates": 16777216,
+    "tested_variants": 33554432,
+    "result": "none",
+    "complete": true,
+    "seconds": 0.218,
+    "sha256": "436be40f5e89213efff57ee18984e13781f6fc612543d1a8948f75a0923ff8cf"
+  },
+  {
+    "file": "results/rsaref-lcg-distinct-2026-09-09/borland-rand-w4.log",
+    "mode": "borland-rand",
+    "word_bytes": 4,
+    "candidates": 16777216,
+    "tested_variants": 33554432,
+    "result": "none",
+    "complete": true,
+    "seconds": 0.232,
+    "sha256": "7b276a715fea957d97db22ca2b5a6c118d15eae05e351d4c0f015692736de480"
+  },
+  {
+    "file": "results/rsaref-lcg-distinct-2026-09-09/ms-rand-w4.log",
+    "mode": "ms-rand",
+    "word_bytes": 4,
+    "candidates": 16777216,
+    "tested_variants": 33554432,
+    "result": "none",
+    "complete": true,
+    "seconds": 0.22,
+    "sha256": "b99b0b748dc8c23894c728d4e52091fc1d4ed8bb600971c27310600227318f91"
+  }
+]

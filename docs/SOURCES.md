@@ -20,7 +20,15 @@ S. R. Dusse and B. S. Kaliski Jr., "A Cryptographic Library for the Motorola DSP
 
 https://link.springer.com/content/pdf/10.1007/3-540-46877-3_21.pdf
 
-Previously extracted text: /tmp/dusse-kaliski.txt, now absent.
+Previously extracted text: /tmp/dusse-kaliski.txt, now absent. The valid
+publisher PDF was reacquired during the September 9 compute continuation and
+is preserved locally as
+`results/generator-evidence-2026-09-09/dusse-kaliski.pdf`, SHA-256
+`ef14dcd3021d2817b83f8783e4072a398db70f28413862f30baff674801f966c`.
+The directory includes full extraction, inspected page renders, retrieval
+commands, manifests, and `REPORT.md` with exact source limitations. Signed
+24-bit arithmetic and configurable host transfers are confirmed, but neither
+specifies RNG-to-candidate packing.
 
 Relevant portions discuss the DSP, PC memory/host/status interfaces, the CND6002A noise circuit, and RSA-MD1. They do not supply challenge-specific key-generation firmware, seed acquisition, or sampling cadence.
 
@@ -194,4 +202,3 @@ The original PDF download attempt returned HTML, not a valid PDF. The old /tmp/r
 - Full ftp filename audit plus selected document inspection found no usable generator artifact.
 
 These are historical observations, not guarantees of current endpoint availability.
-

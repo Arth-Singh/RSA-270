@@ -22,7 +22,7 @@ Status: RSA-270 is not factored. No weak seed, generator state, or factor has be
 | `rsaref_md5_state_scan md5-word` | 307 M state-transition variants/s (4 per seed) | about 56 s |
 | `seed_scan raw32` | 726 M seeds/s | about 6 s |
 
-A 2^40 seed family therefore takes minutes and 2^48 takes days to weeks. Anything larger needs an entropy argument first, not more machines.
+A hypothetical 2^40 range would take about 25 minutes at the old raw32 rate or four hours at the md5-word seed rate; 2^48 would take about 4.5 or 42 days respectively. These are arithmetic extrapolations across different per-seed costs, not measured larger-range runs, and the current word scanner accepts at most 2^32 seeds. Any expanded family needs an entropy argument first.
 
 ## Layout
 
@@ -62,14 +62,15 @@ cd vendor/cado-nfs && make -j"$(nproc)"          # cmake into build/$(hostname)
 | `seed_scan` | `MODE BEGIN END [THREADS] [OFFSET] [le\|be\|post-le\|post-be] [TARGET_HEX ...]`; always pass an explicit `OFFSET` and targets, because the default offset 77 and the built-in targets were never substantiated |
 | `bsafe1_rng_scan` | `time-constant JULIAN_FIRST JULIAN_LAST HUNDREDTH_STEP CANDIDATE_STARTS [TARGET_TSV]` for the fixed-timestamp model; with no subcommand, `[STREAM_BYTES] [TARGET_TSV]` runs the parity/injected-byte scan followed by the seed-independent dll-radix16 exclusion check (`STREAM_BYTES` at least 128, default 2048). These are the only two forms. Both exit 0 when nothing matched and 1 on a match, the opposite of `rsaref_md5_state_scan` |
 | `noise_time_scan` | `START END TIME_MODE SAMPLE_MODE THREADS [needed\|full] [BIT]`; RSA-100 only |
+| `noise_hamming_scan` | `scan [--digest both\|md5\|md1] [--threads N] [--stream-bytes N] [--begin N] [--end N] [--targets TSV]`; `self-test`; exits 0 no full pattern, 3 pattern-only, 4 known-factor candidate interval, 2 error. Never a factorization signal. |
 | `snfs_scan` | `N [MAX_LEADING] [MAX_MULTIPLIER] [KEEP]` |
 | `md1_cli` | `STRING` |
 
 `rsaref_md5_state_scan self-test` plants known seeds (raw-word with the postincrement carry case, and md5-word) through the real scan loop against synthetic anchors and a synthetic target. Run it after any change to the scanner; `make smoke` includes it.
 
-`scripts/rsaref_state_sweep.sh OUT_DIR [THREADS]` runs the self-test and then the full word-seed space of every mode (1 to 4 byte words for the word families, 2^32 seeds for the LCG families) and writes `OUT_DIR/RUN.txt` with commit, source hash, per-family exit codes, and timings. About 30 minutes on the VM. Commit the output directory with the ledger entry in docs/EXPERIMENTS.md.
+`scripts/rsaref_state_sweep.sh OUT_DIR [THREADS] [all|lcg]` refuses an existing output directory, rebuilds the scanner, records source and binary hashes plus compiler/build output, runs the self-test, and then covers the selected families. Word families cover every 1- through 4-byte word. Each LCG uses `[0,2^24)`, which represents every stream of its 32-bit seed space because output discards the upper eight state bits. The observed word-family sweep took about 15 minutes on the VM; all three representative LCG scans together took about 0.67 seconds, excluding build and self-test. Unexpected scanner exits fail the driver; hits stop the remaining jobs for investigation. Commit results with the ledger entry in docs/EXPERIMENTS.md. Independent controls are available through `python3 scripts/validate_rsaref_scanner.py --out FRESH_DIR`.
 
-Exit codes of `rsaref_md5_state_scan`: 0 only when the reconstructed primes multiply to the target (`result=product-match`), 3 when a state passed every anchor but the product did not match (`result=state-only`, which would still mean the stream model is right and the RSA-270 offsets are wrong), 1 when nothing matched, 2 on bad arguments. Even exit 0 must be followed by independent multiplication and primality checks before anything is called a factorization.
+Exit codes of `rsaref_md5_state_scan`: 0 only when reconstructed candidates multiply to the target (`result=product-match`), 3 when a state passed every anchor but the product did not match (`result=state-only`), 1 when nothing matched, 2 on bad arguments. An anchor hit stops the scan early; exit 3 is not complete range coverage and does not by itself identify which reconstruction assumption failed. Even exit 0 requires independent multiplication and primality checks before claiming factorization.
 
 Two RSAREF details every scanner must model explicitly (CONTEXT.md, "The postincrement trap"): the counter increment in r_random.c is `if (state[15-i]++) break;`, which carries when the old byte is zero rather than the new one, and the prime search uses the old Fermat-base-2 predicate, so the "previous prime" for interval inversion is the previous value accepted by that predicate, pseudoprimes included. `noise_time_scan` and `md1_hamming_scan` use only the ordinary increment. `seed_scan` accepts `post-le` and `post-be` (a bytewise subtract-one conjugation around ordinary addition that reproduces the literal transition), but every recorded `seed_scan` run used `le` or `be` with the pre-patch binary, no post-transition run is recorded, and `seed_scan` has no self-test for that path. None of the recorded negative results cover the literal transition.
 

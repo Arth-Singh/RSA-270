@@ -1,0 +1,18 @@
+commit=d9a860e35ab2c6fe513d13922b0912bc04409bf5
+source_sha256=ec3520653e3667a3619c4cf3cf2541e9aa49ca9addfb1a23f361c17edd8ce6e5
+host=computeinstance-e00jqatjfqrdt37c94 threads=128 scope=lcg started=2026-09-09T08:20:22Z
+build_command=make -C /home/arth/RSA-270 -B build/current/rsaref_md5_state_scan
+LCG coverage: seeds differing by multiples of 2^24 produce identical bytes; [0,2^24) covers [0,2^32).
+binary_sha256=6f117362f40d2a00d59d3242e6c30acf3229946bdad36463881a589b550a1f1b
+self-test passed
+ansi-rand w4 start=2026-09-09T08:20:24Z
+command=/home/arth/RSA-270/build/current/rsaref_md5_state_scan ansi-rand 0 16777216 128 4
+ansi-rand w4 exit=1 summary mode=ansi-rand candidates=16777216 tested_state_transition_variants=33554432 result=none elapsed=0.218 rate_Mvariants_s=153.729
+ms-rand w4 start=2026-09-09T08:20:24Z
+command=/home/arth/RSA-270/build/current/rsaref_md5_state_scan ms-rand 0 16777216 128 4
+ms-rand w4 exit=1 summary mode=ms-rand candidates=16777216 tested_state_transition_variants=33554432 result=none elapsed=0.220 rate_Mvariants_s=152.547
+borland-rand w4 start=2026-09-09T08:20:25Z
+command=/home/arth/RSA-270/build/current/rsaref_md5_state_scan borland-rand 0 16777216 128 4
+borland-rand w4 exit=1 summary mode=borland-rand candidates=16777216 tested_state_transition_variants=33554432 result=none elapsed=0.232 rate_Mvariants_s=144.893
+finished=2026-09-09T08:20:25Z
+driver_exit=0 ended=2026-09-09T08:20:25Z

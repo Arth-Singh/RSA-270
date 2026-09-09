@@ -1,0 +1,26 @@
+[
+  {
+    "filename": "dusse-kaliski.pdf",
+    "url": "https://link.springer.com/content/pdf/10.1007/3-540-46877-3_21.pdf",
+    "final_url": "https://link.springer.com/content/pdf/10.1007/3-540-46877-3_21.pdf?error=cookies_not_supported&code=40af04a3-ad3c-4a07-ad87-dc6271db95c7",
+    "content_type": "application/pdf",
+    "bytes": 1287694,
+    "sha256": "ef14dcd3021d2817b83f8783e4072a398db70f28413862f30baff674801f966c"
+  },
+  {
+    "filename": "challenge-mirror.html",
+    "url": "https://www.ontko.com/pub/rayo/primes/rsa_fact.html",
+    "final_url": "https://www.ontko.com/pub/rayo/primes/rsa_fact.html",
+    "content_type": "text/html",
+    "bytes": 18744,
+    "sha256": "b95abde40f0995490ceef092c47b6ad472e306f5a3eb04fd018991ce0352a2dc"
+  },
+  {
+    "filename": "ftp-listing.txt",
+    "url": "https://archive.org/download/ftp.rsa.com/2014.05.ftp.rsa.com.tar.txt",
+    "final_url": "https://dn721202.ca.archive.org/0/items/ftp.rsa.com/2014.05.ftp.rsa.com.tar.txt",
+    "content_type": "text/plain; charset=utf-8",
+    "bytes": 166295,
+    "sha256": "37fd7989d28f1937babf07822b31025e7caec5838814364294b2c5e575042999"
+  }
+]

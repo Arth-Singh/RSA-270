@@ -20,6 +20,50 @@ The stored dataset is 17 pairs / 34 factors: RSA-100, 110, ..., 260. It is not "
 
 Original workspace: /Users/arth_rogerthat/rsa-270. Full copy: /Users/arth_rogerthat/Downloads/RSA-270. The original was preserved. The old goal was paused when checked on September 9. The September 4 18:04:30 KST deadline is historical, not a current instruction to run indefinitely.
 
+## September 9 compute continuation
+
+The new active objective is to solve RSA-270 quickly; the historical one-day
+deadline is still expired. No factor or usable generator state has been found.
+The detailed continuation record is
+`results/compute-continuation-2026-09-09/README.md`.
+
+- All five word-state families completed their full 1- through 4-byte ranges
+  with no matching state. The three LCG families also have complete distinct
+  stream coverage with no match: their emitted bytes depend only on the low
+  24 seed bits, so the remaining eight seed bits repeat each stream 256 times.
+  An interrupted old MS-LCG run is retained but is not counted as negative
+  evidence; a separate rebuilt run covers all three representative ranges.
+- Independent Python-generated controls validate all eight state families,
+  both counters, all three digit widths, all 63 actual anchors over 512 orders,
+  and intentional product mismatches. Evidence is under
+  `results/scanner-validation-2026-09-09/`. The old sweep did not hash its
+  executed binary; the new driver rebuilds and records binary provenance.
+- The formerly unfinished matched gap experiment now has 131,072 direct
+  datasets per model. Only 10 upward-search datasets had a normalized gap sum
+  at or below the observed 41.2602334; plus-one Monte Carlo p is 0.000083923.
+  The uniform-accepted control put the observation at its 89.46th percentile.
+  This is an exploratory conditional-model discrepancy, without global
+  multiplicity or historical-attribution guarantees. Down-rank expanded
+  absolute-offset searches based on the uniform-start upward loop.
+- The missing Dusse/Kaliski DSP paper was recovered with full provenance under
+  `results/generator-evidence-2026-09-09/`. It confirms signed 24-bit arithmetic
+  and selectable host byte transfers, but gives no challenge seeding or prime
+  loop. Neither detail establishes RNG byte packing.
+
+The additive binary-noise test also completed: 2,081,200 configured MD5/MD1
+streams of 16,384 bytes, both arithmetic orders and counter transitions, 50
+encodings, and 17 sample counts. All 34 known factors were tested at independent
+complete-buffer starts; there were zero fingerprint or candidate hits across
+34,083,812,400 byte windows. Evidence and exact bounds are under
+`results/noise-hamming-vm-2026-09-09/`. The entropy reduction follows from the
+additive update if binary samples were hashed separately; historical use is
+unproven, and this is not an exclusion of arbitrary RNGs or seed mixing.
+
+A small signed-24-bit representation sensitivity audit is next. The DSP paper
+describes signed arithmetic, but that alone does not establish how random bytes
+entered candidate digits. Derive and validate any new patterns before expanding
+the search.
+
 ## Strategy and evidence boundaries
 
 Generic GNFS on this laptop is not a plausible one-day route for a balanced 895-bit RSA modulus. The prior investigation estimated roughly 21,000 reference core-years, but the exact benchmark derivation is not preserved; treat that as an old order-of-magnitude assessment, not a verified present benchmark.
@@ -181,7 +225,12 @@ A binary was built on September 3 at 20:25:36, but no completed exhaustive run o
 
 Do not use seed_scan's hard-coded default targets or default offset 77 as authoritative. They were not substantiated by the later reconstruction. Supply explicit anchors/offsets or use the newer scanner.
 
-## Unresolved predecessor-gap evidence
+## Predecessor-gap evidence: initial report and completed follow-up
+
+The following paragraph records the initial handoff limitation. The matched
+calibration was completed during the September 9 continuation; use the results
+at the top of this file and `results/gap-study-20260909/vm.summary.json` for the
+current state. Historical attribution remains unresolved.
 
 The former feasibility agent reported unusually small gaps before the known primes relative to a uniform-start upward-scan model: normalized gap sum 41.26 vs a rough length-biased expectation of 68; approximate lower-tail p=8.5e-5 and scan/uniform-prime likelihood ratio ~0.0067.
 
@@ -205,4 +254,3 @@ The core project was copied checksum-identically before this handoff. On Septemb
 Most old /tmp files were absent, including the recovered Lotus DLLs, emulator/disassembly scripts, decoded papers, archive downloads, and raw experiment logs. A surviving Netscape 1.0 directory was copied under references/recovered-temp; its provenance and relevance are limited. Missing artifacts and reacquisition links are recorded in docs/SOURCES.md.
 
 No relevant active factoring/scanner process was observed during handoff. Old PTY IDs, agent IDs, function-store entries, and timer state cannot be transferred as durable execution state. The source and written records are the restart state.
-

@@ -1,0 +1,4 @@
+make: Entering directory '/home/arth/RSA-270'
+mkdir -p build/current
+c++ -O3 -std=c++20 -Wall -Wno-deprecated-declarations  src/rsaref_md5_state_scan.cpp  -lgmpxx -lgmp -lcrypto -pthread -o build/current/rsaref_md5_state_scan
+make: Leaving directory '/home/arth/RSA-270'

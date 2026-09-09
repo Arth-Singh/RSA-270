@@ -1,0 +1,18 @@
+{
+  "complete": true,
+  "states": 2081200,
+  "windows": 34083812400,
+  "all_hit_counts_zero": true,
+  "scanner_seconds": 50.0564,
+  "artifacts": {
+    "README.md": "c8432e0fed3ad5987bb61130b8cd07ba128a23586cf5e46e0baf624ca170c610",
+    "RUN.log": "791e7a44cdacfcc1b3c50fbcd43ce4304655d2b2148cd326650b8b51d7e10164",
+    "benchmark.log": "50c9fd113107b613453750118f52c2602b07068f6eaeee9b91e099a4ab2e372a",
+    "full-scan.log": "93f41c7141dfa47b3b45418509493cb11ecc71f73de62800a85862327fd4c317",
+    "md1.cpp": "4c1dc13a780b5cec7e47b84265eea3094f4c4b89c74165565a4faa302b72119f",
+    "md1.hpp": "339a314f541eb81466d462018107a4e46895888d4f56c5ca55e3226369ccb4da",
+    "noise_hamming_scan.cpp": "48188e1f0e5b39270c7de1f537e3c4063b0a4ee8e3c2f534d34c8db832bd0c6a",
+    "run_noise_vm.sh": "62b4f967703e332ef1ca3a87c69e41b0b03c3c6efe3b0d1cb1c539dff2d4ba21",
+    "self-test.log": "45113edd95a93927ae9306d5429057f485784687e06fd6efc22403fa9e98650d"
+  }
+}

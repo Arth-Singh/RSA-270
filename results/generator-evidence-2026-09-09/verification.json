@@ -1,0 +1,62 @@
+{
+  "verified_at_utc": "2026-09-09T08:20:48.857087+00:00",
+  "target_matches_context": true,
+  "target_digits": 270,
+  "target_bits": 895,
+  "target_remainder_mod_991889": 10237,
+  "pdfinfo": "Title:           \nSubject:         \nCreator:         Acrobat 3.0 Capture Plug-in\nProducer:        Acrobat Distiller 9.0.0 (Windows)\nCreationDate:    Sat Jun 30 20:45:37 2001 KST\nModDate:         Wed May 15 19:57:56 2013 KST\nCustom Metadata: no\nMetadata Stream: yes\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            AcroForm\nJavaScript:      no\nPages:           15\nEncrypted:       no\nPage size:       431 x 666 pts\nPage rot:        0\nFile size:       1287694 bytes\nOptimized:       yes\nPDF version:     1.4\n",
+  "files": {
+    "COMMANDS.md": {
+      "bytes": 2326,
+      "sha256": "8fb89beec1bbce3efc452f4676021f8d5476a1fd5b9c91bdbf4cbcfe945f796e"
+    },
+    "REPORT.md": {
+      "bytes": 5146,
+      "sha256": "1349f47ac3221ce86a1a43947946815ce98aeeac1659b750c3fe499eb07de612"
+    },
+    "announcement-manifest.json": {
+      "bytes": 286,
+      "sha256": "c8bceec4fe10819b25b424c70af2b3b7d31ed7c64440f56520e61aaa5c600747"
+    },
+    "announcement-mirror.html": {
+      "bytes": 20123,
+      "sha256": "bdc0b761baa2e320dd1c691d4c2b2619f80a7e4e6b41830a04ce9c5209248d84"
+    },
+    "archive-query-manifest.json": {
+      "bytes": 636,
+      "sha256": "af5eaac5d511db09b6af5f9f54ad91225c2a3281bbe59ddcfb043c13b8da230d"
+    },
+    "challenge-mirror.html": {
+      "bytes": 18744,
+      "sha256": "b95abde40f0995490ceef092c47b6ad472e306f5a3eb04fd018991ce0352a2dc"
+    },
+    "dusse-kaliski-page-10.png": {
+      "bytes": 114322,
+      "sha256": "e2988c95d2c73be8189d8937038baedae5094fa2f43e72e2c7d53520e0147ca7"
+    },
+    "dusse-kaliski-page-11.png": {
+      "bytes": 130259,
+      "sha256": "7ad85f284ff535cf5ac8aec2befb11258f1bde87a1ebea0920e18bd7e4447ccc"
+    },
+    "dusse-kaliski-page236.png": {
+      "bytes": 97604,
+      "sha256": "7cdcae4e9089829c76a328d709b9a922a8870b9ffdb4a04894ca4ce70cceffc1"
+    },
+    "dusse-kaliski.pdf": {
+      "bytes": 1287694,
+      "sha256": "ef14dcd3021d2817b83f8783e4072a398db70f28413862f30baff674801f966c"
+    },
+    "dusse-kaliski.txt": {
+      "bytes": 33644,
+      "sha256": "633733b58d7800089b6f7d6c52208231c62544594c1809d5177e7513eae918f5"
+    },
+    "ftp-listing.txt": {
+      "bytes": 166295,
+      "sha256": "37fd7989d28f1937babf07822b31025e7caec5838814364294b2c5e575042999"
+    },
+    "manifest.json": {
+      "bytes": 1129,
+      "sha256": "69858877adfd27fd45679dffddb8160e1b0cd9ac21b8e13f16a9c4024301862d"
+    }
+  }
+}

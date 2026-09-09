@@ -22,6 +22,7 @@ The original one-day deadline has expired. Set a new scope or budget if desired.
 | src/bsafe1_rng_scan.cpp | Recovered 1991 Lotus BSAFE RC2 RNG, parity/time hypotheses, and sparse-candidate checks |
 | src/bsafe_rng_scan.cpp | Older incomplete Boost-based draft; not the preferred implementation |
 | src/md1_hamming_scan.cpp | Hypothetical MD1 additive-RNG binary-sample seed search |
+| src/noise_hamming_scan.cpp | Bounded additive MD5/MD1 binary-sample models, both counters, independent candidate starts, and exact predecessor masks |
 | src/seed_scan.cpp | Older fast MD5 seed-family scanner; requires explicit trustworthy target/offset |
 | src/noise_time_scan.cpp | Older MD5 time-plus-noise model restricted to RSA-100 |
 | src/rsaref_stream_reconstruct.py | Exact conditional inversion of old RSAREF candidate ranges and stream masks |
@@ -33,6 +34,7 @@ The original one-day deadline has expired. Set a new scope or budget if desired.
 | references/rsaref/ | Preserved historical RSAREF source, including HTML-wrapped and raw versions |
 | references/recovered-temp/netscape-1.0/ | Surviving Netscape 1.0 research download; no demonstrated RSA DSP connection |
 | results/handoff-2026-09-09/ | Regenerated masks, verification notes, and file hashes |
+| results/compute-continuation-2026-09-09/ | Completed VM seed coverage, matched gap controls, restored sources, and current research decisions |
 | vendor/cado-nfs/ | CADO-NFS git submodule at upstream commit 73ca6b6; macOS build patch in vendor/patches/ |
 
 ## Local build examples
@@ -71,4 +73,3 @@ Other GMP programs use the same GMP include/library flags. The older MD5 program
 Copied CADO CMake caches, virtual-environment entry points, and generated scripts can retain absolute paths to the original workspace. Reconfigure/rebuild them in this directory if needed. Do not reset its local patches or assume an existing binary was rebuilt after the last source edit.
 
 The project is the Git repository github.com/Arth-Singh/RSA-270 (since 2026-09-09). vendor/cado-nfs is a submodule; run `git submodule update --init` after cloning and apply vendor/patches/cado-nfs-macos-build.patch on macOS. Its build trees and virtual environment are untracked inside the submodule and hidden from `git status` only by `ignore = dirty` in .gitmodules. Compiled binaries under build/ and the recovered Netscape distribution under references/recovered-temp/ are not tracked.
-

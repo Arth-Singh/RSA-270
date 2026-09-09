@@ -1,0 +1,3 @@
+mkdir -p build/current
+cp failing-scanner.sh build/current/rsaref_md5_state_scan
+chmod +x build/current/rsaref_md5_state_scan
