@@ -79,6 +79,16 @@ symbolic equations; it is not a recovery result. Evidence is under
 `results/md1-state-recovery-2026-09-09/`. No real challenge RNG outputs or state
 have been recovered.
 
+The user then asked whether Rust could provide the needed speed. A safe Rust
+MD1 prototype and unchanged production C++ were benchmarked with native
+optimization and LTO on the local Apple M4. All 181 digest controls and 21
+carry controls passed. Across six alternating timing pairs per workload,
+Rust's median throughput advantage was 0.88% for independent synthetic states
+and 0.74% for the postfix-counter workload, with overlapping timing ranges.
+This is near parity, not evidence for a substantial speedup or an AMD VM
+result. Evidence is under `results/rust-kernel-2026-09-09/`. Keep the production
+scanner unchanged; a language rewrite does not supply a factoring method.
+
 ## Strategy and evidence boundaries
 
 Generic GNFS on this laptop is not a plausible one-day route for a balanced 895-bit RSA modulus. The prior investigation estimated roughly 21,000 reference core-years, but the exact benchmark derivation is not preserved; treat that as an old order-of-magnitude assessment, not a verified present benchmark.

@@ -228,6 +228,20 @@ exclude other seed mechanisms, skips, reseeding, or prime-generation loops.
   bytes; a checksum choice fixes the original message. The published MD2
   long-message preimage construction therefore does not establish a practical
   attack on the preserved 16-byte MD1 state model.
+- `results/md1-state-recovery-2026-09-09/`: one blind full-round SMT attempt
+  with all 128 state bits unknown and two complete adjacent digests. The
+  watchdog stopped it after approximately 58.64 seconds without a result.
+  A separate known-state control made the saved equations SAT in 2.279 seconds;
+  this validates one witness, not recovery. Two held-out fixtures were not
+  solved. Original logs, a clock-origin correction, and complete constraints
+  are preserved. This experiment does not establish a preimage hardness bound.
+- `results/rust-kernel-2026-09-09/`: safe Rust translation compared with
+  unchanged production C++ on Apple M4, using native optimization and full LTO.
+  All 181 digest cases and 21 carry cases agreed. Six alternating timing pairs
+  for each of two workloads gave less than 1% median Rust throughput gains,
+  with overlapping ranges. This is a limited local near-parity result, not
+  universal language performance, an AMD VM measurement, or a new factoring
+  algorithm. No production scanner was replaced.
 
 These findings are mathematical constraints and experimental controls, not
 factorization results. MD1's historical use by this challenge remains unproved.
