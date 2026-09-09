@@ -1,0 +1,2 @@
+# Rebuild the local harness from the recorded sources. Hashes remain in RUN.json.
+scanner-control-harness

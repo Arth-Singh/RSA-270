@@ -1,0 +1,49 @@
+{
+  "base_commit": "44a3da5b4cbc2f7ab3d711a4cc10e66eed59ea03",
+  "python": "3.9.6 (default, Apr 30 2025, 02:07:17) \n[Clang 17.0.0 (clang-1700.0.13.5)]",
+  "platform": "macOS-15.5-arm64-arm-64bit",
+  "compile_command": [
+    "c++",
+    "-O2",
+    "-std=c++20",
+    "-Wall",
+    "-Wextra",
+    "-Wno-deprecated-declarations",
+    "-I/opt/homebrew/opt/gmp/include",
+    "-L/opt/homebrew/opt/gmp/lib",
+    "-I/opt/homebrew/opt/openssl@3/include",
+    "-L/opt/homebrew/opt/openssl@3/lib",
+    "/Users/arth_rogerthat/Downloads/RSA-270/.worktrees/scanner-controls/tests/rsaref_scanner_control_harness.cpp",
+    "-lgmpxx",
+    "-lgmp",
+    "-lcrypto",
+    "-pthread",
+    "-o",
+    "/Users/arth_rogerthat/Downloads/RSA-270/.worktrees/scanner-controls/results/scanner-validation-2026-09-09/final/scanner-control-harness"
+  ],
+  "harness_command": [
+    "/Users/arth_rogerthat/Downloads/RSA-270/.worktrees/scanner-controls/results/scanner-validation-2026-09-09/final/scanner-control-harness",
+    "/Users/arth_rogerthat/Downloads/RSA-270/.worktrees/scanner-controls/results/scanner-validation-2026-09-09/final/reference-fixtures.tsv"
+  ],
+  "reproduce_command": [
+    "python3",
+    "scripts/validate_rsaref_scanner.py",
+    "--out",
+    "results/scanner-validation-reproduction"
+  ],
+  "threads": 2,
+  "source_sha256": {
+    "src/rsaref_md5_state_scan.cpp": "ec3520653e3667a3619c4cf3cf2541e9aa49ca9addfb1a23f361c17edd8ce6e5",
+    "scripts/validate_rsaref_scanner.py": "f121a1f7c61b36b302b76b7a5a7eebbb6fb35f6d42363757d3bd2d1a3152813b",
+    "tests/rsaref_scanner_control_harness.cpp": "84896a14e3fb514ac158337a45db1ee168f2939b633331747695e88e190c46bb",
+    "data/solved_decimal_challenge.tsv": "19d713f80b853a85210215498debeaf98ccf18f06c32761d7ddd1be34f27ca99",
+    "references/rsaref/raw_r_random.c": "830d1033717492db27c62f2c7bdddbaba1bb5b969d8c26669284d1c751b8b605",
+    "references/rsaref/raw_prime-old.c": "854c0217bc0825bafb018892eea5ca61abbeaf980e3ee9dcff01912788141b6e"
+  },
+  "fixture_sha256": "a120b13434407f2134d87336bf410b100c1b3e21fd7d47818447f33c2b44a3d1",
+  "compile_exit": 0,
+  "compile_seconds": 1.189346,
+  "binary_sha256": "ae17fc6bb10d683921c207e846f80f75feb7d59afd3cce415efdeabe061a4f2c",
+  "harness_exit": 0,
+  "harness_seconds": 0.20886533400000018
+}
