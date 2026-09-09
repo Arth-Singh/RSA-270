@@ -349,7 +349,7 @@ int RunConstantTimeScan(int argc, char** argv) {
   // exact BSAFE seed state, so 2*65536 precomputations replace 150 operations
   // per timestamp.
   auto [from_a, from_b] = RandomConstantContributions();
-  for (const auto [a_input, b_input] :
+  for (const auto& [a_input, b_input] :
        {std::pair<std::uint16_t, std::uint16_t>{0, 0},
         {1, 0xffff}, {0x1234, 0xabcd}, {0xffff, 1}}) {
     std::array<std::uint8_t, 16> split{};

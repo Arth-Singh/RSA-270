@@ -89,10 +89,7 @@ void MultiplyBigEndian(Block* value, unsigned multiplier) {
 }
 
 void Md5(const unsigned char* input, size_t size, Block* output) {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
   MD5(input, size, output->data());
-#pragma clang diagnostic pop
 }
 
 uint32_t NextRand(uint32_t* state, Mode mode) {

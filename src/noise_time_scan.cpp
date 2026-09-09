@@ -33,10 +33,7 @@ struct Target {
 };
 
 void Md5(const unsigned char* input, size_t size, Block* output) {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
   MD5(input, size, output->data());
-#pragma clang diagnostic pop
 }
 
 Block Add(const Block& left, const Block& right) {

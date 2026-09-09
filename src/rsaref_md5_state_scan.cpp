@@ -127,10 +127,7 @@ std::vector<WidthModel> Models() {
 }
 
 void Md5(const unsigned char* input, std::size_t size, Block* output) {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
   MD5(input, size, output->data());
-#pragma clang diagnostic pop
 }
 
 void Step(Block* state, Transition transition) {
