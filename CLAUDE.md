@@ -56,7 +56,9 @@ cd vendor/cado-nfs && make -j"$(nproc)"          # cmake into build/$(hostname)
 | `snfs_scan` | `N [MAX_LEADING] [MAX_MULTIPLIER] [KEEP]` |
 | `md1_cli` | `STRING` |
 
-Exit codes: `rsaref_md5_state_scan` returns 1 when no modeled state matches, which is the normal outcome, and 2 on bad arguments. Its `result=match` with exit 0 only means an anchor-confirmed model state; `main` ignores the product-match boolean returned by `BuildRsa270`. Treat `product_match=yes` as the only success signal, then verify by independent multiplication and primality tests.
+`rsaref_md5_state_scan self-test` plants known seeds (raw-word with the postincrement carry case, and md5-word) through the real scan loop against synthetic anchors and a synthetic target. Run it after any change to the scanner; `make smoke` includes it.
+
+Exit codes of `rsaref_md5_state_scan`: 0 only when the reconstructed primes multiply to the target (`result=product-match`), 3 when a state passed every anchor but the product did not match (`result=state-only`, which would still mean the stream model is right and the RSA-270 offsets are wrong), 1 when nothing matched, 2 on bad arguments. Even exit 0 must be followed by independent multiplication and primality checks before anything is called a factorization.
 
 Two RSAREF details every scanner must model explicitly (CONTEXT.md, "The postincrement trap"): the counter increment in r_random.c is `if (state[15-i]++) break;`, which carries when the old byte is zero rather than the new one, and the prime search uses the old Fermat-base-2 predicate, so the "previous prime" for interval inversion is the previous value accepted by that predicate, pseudoprimes included. The older scanners (`seed_scan`, `noise_time_scan`, `md1_hamming_scan`) use the ordinary increment; their negative results do not cover the literal transition.
 

@@ -291,56 +291,73 @@ void PrintBlock(const Block& block) {
   for (const auto byte : block) std::printf("%02x", byte);
 }
 
-bool BuildRsa270(Block state, Transition transition, const WidthModel& model) {
-  const std::size_t end = model.target_offset + 2 * model.target_block_bytes;
+struct TargetModel {
+  std::vector<WidthModel> widths;
+  mpz_class target;
+  unsigned p_bits;
+  unsigned q_bits;
+};
+
+const char* const kRsa270Decimal =
+    "233108530344407544527637656910680524145619812480305449042948611968495918245135782867888369318577116418213919268572658314913060672626911354027609793166341626693946596196427744273886601876896313468704059066746903123910748277606548649151920812699309766587514735456594993207";
+
+TargetModel Rsa270Model() {
+  return {Models(), mpz_class(kRsa270Decimal, 10), 448, 447};
+}
+
+std::vector<unsigned char> Stream(Block state, Transition transition,
+                                  std::size_t bytes) {
   std::vector<unsigned char> stream;
-  stream.reserve(end);
-  while (stream.size() < end) {
+  stream.reserve(bytes + 16);
+  while (stream.size() < bytes) {
     const Block digest = Digest(state);
     stream.insert(stream.end(), digest.begin(), digest.end());
     Step(&state, transition);
   }
-  const mpz_class raw1 = Import(stream.data() + model.target_offset,
-                                model.target_block_bytes);
-  const mpz_class raw2 = Import(stream.data() + model.target_offset +
-                                    model.target_block_bytes,
-                                model.target_block_bytes);
-  const mpz_class p = FindPrime(raw1, 448);
-  const mpz_class q = FindPrime(raw2, 447);
-  const mpz_class target(
-      "233108530344407544527637656910680524145619812480305449042948611968495918245135782867888369318577116418213919268572658314913060672626911354027609793166341626693946596196427744273886601876896313468704059066746903123910748277606548649151920812699309766587514735456594993207",
-      10);
-  std::printf("RSA270 digit_bits=%u p=%s q=%s product_match=%s\n",
-              model.digit_bits, p.get_str().c_str(), q.get_str().c_str(),
-              p * q == target ? "yes" : "no");
-  return p * q == target;
+  return stream;
 }
 
-}  // namespace
+std::pair<mpz_class, mpz_class> ModeledPrimes(
+    const std::vector<unsigned char>& stream, const WidthModel& width,
+    const TargetModel& model) {
+  const mpz_class raw1 = Import(stream.data() + width.target_offset,
+                                width.target_block_bytes);
+  const mpz_class raw2 = Import(
+      stream.data() + width.target_offset + width.target_block_bytes,
+      width.target_block_bytes);
+  return {FindPrime(raw1, model.p_bits), FindPrime(raw2, model.q_bits)};
+}
 
-int main(int argc, char** argv) {
-  if (argc < 5 || argc > 6) {
-    std::fprintf(stderr,
-                 "usage: %s MODE BEGIN END THREADS [WORD_BYTES]\n"
-                 "modes: raw-word raw-repeat-word md5-word md5-word-times64 "
-                 "md5-repeat-buffer ansi-rand ms-rand borland-rand\n",
-                 argv[0]);
-    return 2;
-  }
-  const std::string mode = argv[1];
-  const std::uint64_t begin = std::strtoull(argv[2], nullptr, 0);
-  const std::uint64_t end = std::strtoull(argv[3], nullptr, 0);
-  unsigned threads = std::strtoul(argv[4], nullptr, 0);
-  const unsigned word_bytes = argc == 6 ? std::strtoul(argv[5], nullptr, 0) : 4;
-  if (begin >= end || end > (std::uint64_t{1} << 32) || threads == 0 ||
-      word_bytes == 0 || word_bytes > 4 ||
-      (word_bytes < 4 && end > (std::uint64_t{1} << (8 * word_bytes)))) {
-    std::fprintf(stderr, "invalid range/thread/word width\n");
-    return 2;
-  }
+// Reconstructs the modeled target primes from an anchor-confirmed state and
+// reports whether their product equals the target. Only "yes" is a
+// factorization claim; an anchor match alone is a model-state hit.
+bool BuildTarget(Block state, Transition transition, const WidthModel& width,
+                 const TargetModel& model) {
+  const std::size_t end = width.target_offset + 2 * width.target_block_bytes;
+  const auto stream = Stream(state, transition, end);
+  const auto [p, q] = ModeledPrimes(stream, width, model);
+  const bool match = p * q == model.target;
+  std::printf("TARGET digit_bits=%u p=%s q=%s product_match=%s\n",
+              width.digit_bits, p.get_str().c_str(), q.get_str().c_str(),
+              match ? "yes" : "no");
+  return match;
+}
 
-  const auto models = Models();
+enum class Outcome { kProductMatch = 0, kNone = 1, kStateOnly = 3 };
+
+const char* Name(Outcome outcome) {
+  switch (outcome) {
+    case Outcome::kProductMatch: return "product-match";
+    case Outcome::kStateOnly: return "state-only";
+    case Outcome::kNone: return "none";
+  }
+  return "unknown";
+}
+
+Outcome RunScan(const std::string& mode, std::uint64_t begin, std::uint64_t end,
+                unsigned threads, unsigned word_bytes, const TargetModel& model) {
   std::atomic<bool> found{false};
+  std::atomic<bool> product_match{false};
   std::atomic<std::uint64_t> tested_variants{0};
   const auto started = std::chrono::steady_clock::now();
   std::vector<std::thread> workers;
@@ -352,25 +369,30 @@ int main(int argc, char** argv) {
       for (std::uint64_t candidate = first;
            candidate < last && !found.load(std::memory_order_relaxed);
            ++candidate) {
-        const auto states = InitialStates(mode, static_cast<std::uint32_t>(candidate),
-                                          word_bytes);
+        const auto states = InitialStates(
+            mode, static_cast<std::uint32_t>(candidate), word_bytes);
         for (const auto& named_state : states) {
           for (const auto transition : {Transition::kPostincrement,
                                         Transition::kPreincrement}) {
             ++local;
-            unsigned width = 0;
-            if (!Probe(named_state.second, transition, models, &width)) continue;
+            unsigned width_bits = 0;
+            if (!Probe(named_state.second, transition, model.widths, &width_bits))
+              continue;
             found.store(true, std::memory_order_relaxed);
             std::printf("MATCH candidate=%llu family=%s transition=%s width=%u state=",
                         static_cast<unsigned long long>(candidate),
                         named_state.first.c_str(),
                         transition == Transition::kPostincrement ? "post" : "pre",
-                        width);
+                        width_bits);
             PrintBlock(named_state.second);
             std::printf("\n");
-            const auto model = std::find_if(models.begin(), models.end(),
-                [width](const WidthModel& item) { return item.digit_bits == width; });
-            BuildRsa270(named_state.second, transition, *model);
+            const auto width = std::find_if(
+                model.widths.begin(), model.widths.end(),
+                [width_bits](const WidthModel& item) {
+                  return item.digit_bits == width_bits;
+                });
+            if (BuildTarget(named_state.second, transition, *width, model))
+              product_match.store(true, std::memory_order_relaxed);
           }
         }
       }
@@ -380,11 +402,129 @@ int main(int argc, char** argv) {
   for (auto& worker : workers) worker.join();
   const double seconds = std::chrono::duration<double>(
       std::chrono::steady_clock::now() - started).count();
+  const Outcome outcome = product_match ? Outcome::kProductMatch
+                          : found       ? Outcome::kStateOnly
+                                        : Outcome::kNone;
   std::printf("summary mode=%s candidates=%llu tested_state_transition_variants=%llu"
               " result=%s elapsed=%.3f rate_Mvariants_s=%.3f\n",
               mode.c_str(), static_cast<unsigned long long>(end - begin),
               static_cast<unsigned long long>(tested_variants.load()),
-              found ? "match" : "none", seconds,
-              tested_variants.load() / seconds / 1e6);
-  return found ? 0 : 1;
+              Name(outcome), seconds, tested_variants.load() / seconds / 1e6);
+  std::fflush(stdout);
+  return outcome;
+}
+
+// Builds a model whose anchors and target are derived from a planted initial
+// state, so the real search path can be exercised end to end.
+TargetModel PlantedModel(const Block& planted, Transition transition) {
+  TargetModel model = Rsa270Model();
+  for (WidthModel& width : model.widths) {
+    Block state = planted;
+    unsigned index = 0;
+    for (Anchor& anchor : width.anchors) {
+      while (index < anchor.index) {
+        Step(&state, transition);
+        ++index;
+      }
+      anchor.digest = Digest(state);
+    }
+  }
+  const WidthModel& first = model.widths.front();
+  const auto stream = Stream(
+      planted, transition, first.target_offset + 2 * first.target_block_bytes);
+  const auto [p, q] = ModeledPrimes(stream, first, model);
+  model.target = p * q;
+  return model;
+}
+
+bool Expect(bool condition, const char* what) {
+  std::printf("self-test %s: %s\n", condition ? "pass" : "FAIL", what);
+  return condition;
+}
+
+// Plants known seeds through the exact search path. The raw-word case starts
+// with twelve zero bytes, so the literal postincrement carry runs through the
+// whole state on the first step and the wrong transition must not verify.
+int SelfTest() {
+  bool ok = true;
+  struct Plant {
+    const char* mode;
+    std::uint32_t candidate;
+    bool little;
+    unsigned position;
+  };
+  const Plant plants[] = {{"raw-word", 0x1234abcdu, false, 0},
+                          {"md5-word", 0x00c0ffeeu, true, 0}};
+  for (const Plant& plant : plants) {
+    const auto states = InitialStates(plant.mode, plant.candidate, 4);
+    const std::string wanted = std::string(plant.mode) +
+        (plant.little ? "-le" : "-be") +
+        (std::string(plant.mode) == "raw-word"
+             ? "-at" + std::to_string(plant.position) : "");
+    const auto planted = std::find_if(
+        states.begin(), states.end(),
+        [&](const auto& named) { return named.first == wanted; });
+    ok &= Expect(planted != states.end(), "planted state family exists");
+    if (planted == states.end()) continue;
+    for (const Transition transition : {Transition::kPostincrement,
+                                        Transition::kPreincrement}) {
+      const Transition other = transition == Transition::kPostincrement
+                                   ? Transition::kPreincrement
+                                   : Transition::kPostincrement;
+      const TargetModel model = PlantedModel(planted->second, transition);
+      const std::string label = std::string(plant.mode) + "/" +
+          (transition == Transition::kPostincrement ? "post" : "pre");
+      const std::string verify_label = label + " planted state verifies";
+      ok &= Expect(Verify(planted->second, transition, model.widths.front()),
+                   verify_label.c_str());
+      if (std::string(plant.mode) == "raw-word") {
+        const std::string carry_label =
+            label + " wrong transition rejected (carry case)";
+        ok &= Expect(!Verify(planted->second, other, model.widths.front()),
+                     carry_label.c_str());
+      }
+      const std::string hit_label = label + " scan over planted range";
+      ok &= Expect(RunScan(plant.mode, plant.candidate - 300,
+                           plant.candidate + 300, 4, 4, model) ==
+                       Outcome::kProductMatch,
+                   hit_label.c_str());
+      const std::string miss_label = label + " scan over range without seed";
+      ok &= Expect(RunScan(plant.mode, plant.candidate + 1000,
+                           plant.candidate + 1600, 4, 4, model) ==
+                       Outcome::kNone,
+                   miss_label.c_str());
+    }
+  }
+  std::printf("self-test %s\n", ok ? "PASSED" : "FAILED");
+  return ok ? 0 : 1;
+}
+
+}  // namespace
+
+int main(int argc, char** argv) {
+  if (argc == 2 && std::string(argv[1]) == "self-test") return SelfTest();
+  if (argc < 5 || argc > 6) {
+    std::fprintf(stderr,
+                 "usage: %s MODE BEGIN END THREADS [WORD_BYTES]\n"
+                 "       %s self-test\n"
+                 "modes: raw-word raw-repeat-word md5-word md5-word-times64 "
+                 "md5-repeat-buffer ansi-rand ms-rand borland-rand\n"
+                 "exit: 0 product match, 1 no match, 3 anchor-only state hit, "
+                 "2 bad arguments\n",
+                 argv[0], argv[0]);
+    return 2;
+  }
+  const std::string mode = argv[1];
+  const std::uint64_t begin = std::strtoull(argv[2], nullptr, 0);
+  const std::uint64_t end = std::strtoull(argv[3], nullptr, 0);
+  const unsigned threads = std::strtoul(argv[4], nullptr, 0);
+  const unsigned word_bytes = argc == 6 ? std::strtoul(argv[5], nullptr, 0) : 4;
+  if (begin >= end || end > (std::uint64_t{1} << 32) || threads == 0 ||
+      word_bytes == 0 || word_bytes > 4 ||
+      (word_bytes < 4 && end > (std::uint64_t{1} << (8 * word_bytes)))) {
+    std::fprintf(stderr, "invalid range/thread/word width\n");
+    return 2;
+  }
+  return static_cast<int>(
+      RunScan(mode, begin, end, threads, word_bytes, Rsa270Model()));
 }

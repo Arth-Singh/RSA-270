@@ -54,6 +54,7 @@ $(BIN)/snfs_scan: src/snfs_scan.cpp | $(BIN)
 smoke: $(BIN)/md1_cli $(BIN)/rsaref_md5_state_scan
 	test "$$($(BIN)/md1_cli abc)" = 74594a0a73b03503efe62e574dbaf816 && echo "md1 known answer: ok"
 	$(BIN)/rsaref_md5_state_scan md5-word 0 1000 2 4; test $$? -le 1 && echo "rsaref_md5_state_scan tiny run: ok"
+	$(BIN)/rsaref_md5_state_scan self-test | tail -1 | grep -q PASSED && echo "rsaref_md5_state_scan self-test: ok"
 	python3 src/rsaref_stream_reconstruct.py > /dev/null && echo "rsaref_stream_reconstruct: ok"
 
 clean:

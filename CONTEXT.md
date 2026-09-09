@@ -177,7 +177,7 @@ src/rsaref_md5_state_scan.cpp supports raw-word, raw-repeat-word, md5-word, md5-
 
 A binary was built on September 3 at 20:25:36, but no completed exhaustive run of this new scanner is established in the available handoff context.
 
-**Code caveat:** main sets found=true on an anchor-confirmed state, calls BuildRsa270, and ignores the returned product-match boolean. Therefore its summary result=match and exit 0 do not by themselves certify RSA-270 factorization. Require product_match=yes, exact independent multiplication, and primality validation. A new research session should separate a model-state hit from actual target success.
+**Code caveat (resolved 2026-09-09):** the September 3 build set found=true on an anchor-confirmed state, called BuildRsa270, and ignored the returned product-match boolean, so its exit 0 did not certify anything. The scanner now exits 0 only on product_match=yes, 3 for an anchor-only state hit, and 1 for no match, and `rsaref_md5_state_scan self-test` plants known seeds through the full path including a postincrement carry case. Exact independent multiplication and primality validation are still required after any exit 0.
 
 Do not use seed_scan's hard-coded default targets or default offset 77 as authoritative. They were not substantiated by the later reconstruction. Supply explicit anchors/offsets or use the newer scanner.
 

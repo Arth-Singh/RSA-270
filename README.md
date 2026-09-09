@@ -62,7 +62,7 @@ clang++ -O3 -std=c++20 \
 ./build/current/rsaref_md5_state_scan md5-word 0 1000 2 4
 ```
 
-The MD1 result must be `74594a0a73b03503efe62e574dbaf816`. The tiny scanner run is only a smoke test, not a useful search. The newer scanner returns 1 when no modeled state matches; that is not a program failure. Its current exit-0 semantics still require scrutiny: see CONTEXT.md.
+The MD1 result must be `74594a0a73b03503efe62e574dbaf816`. The tiny scanner run is only a smoke test, not a useful search. The newer scanner exits 1 when no modeled state matches (the normal outcome), 3 when a state passes every anchor but the reconstructed primes do not multiply to RSA-270, and 0 only on an exact product match. `rsaref_md5_state_scan self-test` plants known seeds through the real search path, including the postincrement carry case, and must print `self-test PASSED`.
 
 Other GMP programs use the same GMP include/library flags. The older MD5 programs also need OpenSSL. md1_hamming_scan.cpp must be linked with md1.cpp. The forensic Python scripts use the standard library.
 
